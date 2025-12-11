@@ -237,10 +237,16 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="a7VRyFFdftak3RgkMffm-95" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="FoundItem" vertex="1">
-          <mxGeometry height="52" width="190" x="150" y="600" as="geometry" />
+          <mxGeometry height="86" width="190" x="150" y="600" as="geometry" />
         </mxCell>
         <mxCell id="a7VRyFFdftak3RgkMffm-96" parent="a7VRyFFdftak3RgkMffm-95" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- foundItemID: int" vertex="1">
           <mxGeometry height="26" width="190" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="k1Wd3kkX2rCd-Eg22tFB-48" parent="a7VRyFFdftak3RgkMffm-95" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="190" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="k1Wd3kkX2rCd-Eg22tFB-47" parent="a7VRyFFdftak3RgkMffm-95" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ generateItem (int ID)" vertex="1">
+          <mxGeometry height="26" width="190" y="60" as="geometry" />
         </mxCell>
         <mxCell id="a7VRyFFdftak3RgkMffm-112" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Inventory" vertex="1">
           <mxGeometry height="164" width="140" x="1650" y="-30" as="geometry" />
