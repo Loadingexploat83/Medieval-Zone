@@ -17,6 +17,10 @@ public class Enemy implements CombatActions{
 	
 	public void Hit(int dmg) {
 		
+		if(dmg <= 0) {
+			
+			dmg = 1;
+		}
 		this.hp -= dmg;
 	}
 	@Override

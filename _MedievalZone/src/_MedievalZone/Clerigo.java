@@ -21,7 +21,7 @@ public class Clerigo extends Enemy{
 	}
 	public int Guard() {
 		
-		def = getInventario().getArmor().getDefPoints();
+		def = getInventario().getArmor().getDef();
 		
 		return def;
 	}

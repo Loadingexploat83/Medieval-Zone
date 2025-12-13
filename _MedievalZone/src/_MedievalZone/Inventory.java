@@ -7,7 +7,7 @@ import java.util.List;
 public class Inventory {
 
 	 private Weapon weapon;
-	 private Armadura armor;
+	 private Armour armadura;
 	 private List<Consumible> consumibles = new ArrayList<>();
 	 
 	 
@@ -21,11 +21,11 @@ public class Inventory {
 	 public void setWeapon(Weapon weapon) {
 		 this.weapon = weapon;
 	 }
-	 public Armadura getArmor() {
-		 return armor;
+	 public Armour getArmor() {
+		 return armadura;
 	 }
-	 public void setArmor(Armadura armor) {
-		 this.armor = armor;
+	 public void setArmor(Armour armadura) {
+		 this.armadura = armadura;
 	 }
 	 public List<Consumible> getConsumibles() {
 		 return consumibles;

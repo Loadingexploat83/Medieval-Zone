@@ -6,6 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		//E SIGNIFICA ENEMY, P SIGNIFICA PLAYER;
 		Scanner sc = new Scanner(System.in);
 		Enemy[] e = new Enemy[16];
 		System.out.println("Bienvenido");
@@ -20,7 +22,7 @@ public class Main {
 		
 			for(int i = 0; i < numJug; i++) {
 				
-				System.out.println("Jugador "+ i+ " elige tipo de personaje:");
+				System.out.println("Jugador "+ (i+1)+ " elige tipo de personaje:");
 				System.out.println("1-. Clerigo");
 				System.out.println("2-. Ladron");
 				System.out.println("3-. Caballero");
@@ -47,10 +49,10 @@ public class Main {
 						break;
 				}
 			}
-			System.out.println("Ha salido del for");
 			e[0] = new Enemy();
 		}
-		while(p[0].getHp() != 0 || turn <= 3) { 
+		while(p[0].getHp() != 0 && turn <= 3) { 
+			
 			System.out.println("Tu turno:");
 			System.out.println("1-. Investigar");
 			System.out.println("2-. Atacar");
@@ -60,6 +62,7 @@ public class Main {
 			
 				case 1:
 					p[0].getInventario().setWeapon(new Axe());
+					p[0].getInventario().setArmor(new Helmet());
 					break;
 				case 2:
 					p[0].Attack(p[0].getInventario().getWeapon(), e[0]);
@@ -72,7 +75,6 @@ public class Main {
 			}
 			turn ++;
 		}
-		System.out.println("Ha salido del while");
 	}
 
 }
