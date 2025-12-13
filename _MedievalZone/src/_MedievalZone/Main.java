@@ -66,7 +66,7 @@ public class Main {
 					break;
 				case 2:
 					p[0].Attack(p[0].getInventario().getWeapon(), e[0]);
-					System.out.println(e[0].getHp());
+					System.out.println("Tu vida: " + e[0].getHp());
 					break;
 				case 3: 
 					
