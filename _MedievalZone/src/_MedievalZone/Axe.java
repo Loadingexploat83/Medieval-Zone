@@ -12,7 +12,7 @@ public class Axe extends Weapon {
 	public Axe(int mod){
 		super(15,25);
 
-		modDmg();
+		//modDmg();
 	}
 	
 	@Override
