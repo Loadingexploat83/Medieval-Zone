@@ -2,14 +2,16 @@ package _MedievalZone;
 
 public class Sword extends Weapon {
 	
-	int mult = 5;
+	private static int mult = 5;
+	private static int baseDmg = 10;
+	private static int baseWeight = 20;
 	
 	public Sword() {
-		super(10, 20);
+		super(baseDmg,baseWeight);
 	}
 	
 	public Sword(int mod) {
-		super(10, 20);
+		super(baseDmg,baseWeight);
 		modDmg(mod*mult);
 		modWeight(mod*mult);
 		
