@@ -40,6 +40,7 @@ public class Bow extends Weapon {
 		this.arrows += num;
 	}
 	
+	//Para hacer daño
 	public int useArrow() {
 		this.arrows--;
 		return getDmg();

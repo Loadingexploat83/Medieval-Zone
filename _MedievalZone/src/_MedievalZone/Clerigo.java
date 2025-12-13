@@ -7,6 +7,7 @@ public class Clerigo extends Enemy{
 	private int dmg;
 	public Clerigo() {
 		
+		super();
 		this.def = 5;
 		this.hp = 100;
 		this.dmg = 3;
@@ -15,14 +16,19 @@ public class Clerigo extends Enemy{
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
 		
-		dmg = arma.getDmg();
+		dmg = arma.getDmg() - Guard();
 		e.Hit(dmg);
 	}
-	public void Guard() {
+	public int Guard() {
 		
+		def = getInventario().getArmor().getDefPoints();
+		
+		return def;
 	}
-	public void UseItem() {
+	public void UseItem(Consumible consum) {
 		
+		consum.Action(this);
+		getInventario().delConsum(consum);
 	}
 	
 	public int getHp() {

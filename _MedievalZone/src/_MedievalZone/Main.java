@@ -66,6 +66,8 @@ public class Main {
 					System.out.println(e[0].getHp());
 					break;
 				case 3: 
+					
+					p[0].getInventario().toString();
 					break;
 			}
 			turn ++;

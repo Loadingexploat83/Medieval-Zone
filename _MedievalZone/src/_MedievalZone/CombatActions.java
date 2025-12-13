@@ -3,6 +3,6 @@ package _MedievalZone;
 public interface CombatActions {
 
 	void Attack(Weapon arma, Enemy e);
-	void Guard();
+	int Guard();
 	void UseItem();
 }

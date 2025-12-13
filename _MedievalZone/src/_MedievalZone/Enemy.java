@@ -23,8 +23,9 @@ public class Enemy implements CombatActions{
 	public void Attack(Weapon arma, Enemy e) {
 		
 	}
-	public void Guard() {
+	public int Guard() {
 		
+		return 0;
 	}
 	public void UseItem() {
 		
