@@ -2,15 +2,17 @@ package _MedievalZone;
 
 public class Axe extends Weapon {
 	
-	private int mult = 10;
+	private static int mult = 10;
+	private static int baseDmg = 15;
+	private static int baseWeight = 25;
 	
 	
 	public Axe(){
-		super(15,25);
+		super(baseDmg,baseWeight);
 	}
 	
 	public Axe(int mod){
-		super(15,25);
+		super(baseDmg,baseWeight);
 
 		modDmg(mod*mult);
 		modWeight(mod*mult);

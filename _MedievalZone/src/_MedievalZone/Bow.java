@@ -2,29 +2,32 @@ package _MedievalZone;
 
 public class Bow extends Weapon {
 
-	private int mult = 15;
+	private static int mult = 15;
 	private int arrows;
+	private static int baseDmg = 35;
+	private static int baseWeight = 20;
 	
+	//base Bow
 	public Bow(){
-		super(35,20);
+		super(baseDmg,baseWeight);
 		this.setArrows(5);
 	}
 	//solo modifica daño y peso
 	public Bow(int mod){
-		super(35,20);
+		super(baseDmg,baseWeight);
 		modDmg(mod*mult);
 		modWeight(mod*mult);
 		this.setArrows(5);
 	}
 	//lo mismo que el anterior pero especifica el numero de flechas
 	public Bow(int mod, int numArrows){
-		super(35,20);
+		super(baseDmg,baseWeight);
 		modDmg(mod*mult);
 		modWeight(mod*mult);
 		this.setArrows(numArrows);
 	}
 	
-	
+	//devuelve la cantidad de flechas
 	public int getArrows() {
 		return arrows;
 	}
@@ -33,14 +36,15 @@ public class Bow extends Weapon {
 		this.arrows = arrows;
 	}
 	
+	//solo añade una flecha
 	public void addArrows() {
 		this.arrows++;
 	}
+	//añade tantas flechas como especificado
 	public void addArrows(int num) {
 		this.arrows += num;
 	}
-	
-	//Para hacer daño
+
 	public int useArrow() {
 		this.arrows--;
 		return getDmg();

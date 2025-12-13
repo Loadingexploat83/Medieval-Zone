@@ -2,14 +2,16 @@ package _MedievalZone;
 
 public class Dagger extends Weapon {
 	
-	private int mult = 2;
+	private static int mult = 2;
+	private static int baseDmg = 5;
+	private static int baseWeight = 5;
 	
 	public Dagger(){
-		super(5,5);
+		super(baseDmg,baseWeight);
 	}
 	
 	public Dagger(int mod){
-		super(5,5);
+		super(baseDmg,baseWeight);
 		modDmg(mod*mult);
 		modWeight(mod*mult);
 	}
