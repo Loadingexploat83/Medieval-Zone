@@ -15,7 +15,7 @@ public class Axe extends Weapon {
 		modDmg(mod*mult);
 		modWeight(mod*mult);
 	}
-	//
+	//NIGGA
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
