@@ -5,6 +5,7 @@ public class Dagger extends Weapon {
 	private static int mult = 2;
 	private static int baseDmg = 5;
 	private static int baseWeight = 5;
+	private int percent = 30;
 	
 	public Dagger(){
 		super(baseDmg,baseWeight);
@@ -14,6 +15,16 @@ public class Dagger extends Weapon {
 		super(baseDmg,baseWeight);
 		modDmg(mod*mult);
 		modWeight(mod*mult);
+	}
+	
+	
+	public int useDagger() {
+		if(Math.random()*100 <percent) {
+			return getDmg();
+		}else {
+			System.out.println("Player performed doouble hit.");
+			return getDmg()*2;
+		}
 	}
 	
 	@Override
