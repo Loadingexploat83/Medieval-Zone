@@ -1,16 +1,22 @@
 package _MedievalZone;
 
 public class Hammer extends Weapon {
+	
+	private int mult = 30;
 
-	public Hammer(int dmg, int weight) {
-		super(dmg, weight);
-		// TODO Auto-generated constructor stub
+	public Hammer() {
+		super(40, 50);
+	}
+	
+	public Hammer(int mod) {
+		super(40,50);
+		modDmg(mod*mult);
+		modWeight(mod*mult);
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return return "This Weapon is a Hammer With "+ getDmg() +" Attack and "+ getWeight()+ " Weight";
 	}
 
 }

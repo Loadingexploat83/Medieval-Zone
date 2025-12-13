@@ -12,12 +12,13 @@ public class Axe extends Weapon {
 	public Axe(int mod){
 		super(15,25);
 
-		//modDmg();
+		modDmg(mod*mult);
+		modWeight(mod*mult);
 	}
 	
 	@Override
 	public String toString() {
-		return "This Weapon is an Axe With "+ getDmg() +" Attack and "+ getWeight()+ " Weight";
+		
 	}
 
 }
