@@ -19,7 +19,7 @@ public class Dagger extends Weapon {
 	
 	
 	public int useDagger() {
-		if(Math.random()*100 <percent) {
+		if(Math.random()*100 >percent) {
 			return getDmg();
 		}else {
 			System.out.println("Player performed doouble hit.");
