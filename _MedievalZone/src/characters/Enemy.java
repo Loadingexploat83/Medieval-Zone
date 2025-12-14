@@ -41,6 +41,11 @@ public abstract class Enemy implements CombatActions{
 		}
 		this.hp -= dmg;
 	}
+	public void aumentarDefensa(int aumento) {
+		
+		this.def += aumento;
+	}
+	
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
 		

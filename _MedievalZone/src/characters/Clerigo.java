@@ -12,6 +12,7 @@ public class Clerigo extends Enemy{
 	private int hp;
 	private int def;
 	private int dmg;
+	
 	public Clerigo() {
 		
 		super();

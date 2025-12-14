@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import Armor.*;
+import consumibles.*;
 import characters.*;
 
 
