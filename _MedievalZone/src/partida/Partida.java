@@ -111,7 +111,11 @@ public class Partida {
 			}
 		
 		// Seleccionar un spawnpoint
-			System.out.println("");
+			System.out.println("¿Donde desea empezar su aventura?");
+			for (int i = 0; i < locations.length; i++) 
+			{
+				System.out.println((i+1) + locations[i]);
+			}
 		
 		
 	}
