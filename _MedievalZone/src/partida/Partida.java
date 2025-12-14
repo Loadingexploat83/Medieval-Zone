@@ -13,7 +13,22 @@ public class Partida {
 	private int turn = 0;
 	private int enemyCount = 0;
 	private String location;
-	private String[] locations;
+	private String[] locations = {
+			
+		"Parque placentero",
+		"Montañas estrepitosas",
+		"Socabon Soterrado",
+		"Masilla explosiva",
+		"Republica Dominicana",
+		"Baños turcos",
+		"villorrio tailandes",
+		"Aldea ayuntamiento 12",
+		"Cuenca, la villa del Mega Caballero",
+		"Extremadura",
+		"Poblado foráneo"
+			
+	};
+	
 	private String[] availableLocations;
 	
 	public Partida() {
@@ -51,8 +66,6 @@ public class Partida {
 		
 		
 	}
-	//Enemy[] enemies = new enemy[3]; no se como vais a hacer lo de enemies
-	
 	
 	
 	void Start(){
@@ -63,11 +76,10 @@ public class Partida {
 	
 	void CreateParty() {
 	
-	}
-	
-	void CrearEnemigos() {
+		
 		
 	}
+	
 	
 	private void Storm() {
 		
