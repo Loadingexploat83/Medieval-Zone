@@ -23,7 +23,7 @@ public class Partida {
 		"Baños turcos",
 		"villorrio tailandes",
 		"Aldea ayuntamiento 12",
-		"Cuenca, la villa del Mega Caballero",
+		"Cuenca, la villa del Mega Caballero", //test
 		"Extremadura",
 		"Poblado foráneo"
 			
