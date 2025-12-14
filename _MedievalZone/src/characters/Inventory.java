@@ -2,10 +2,13 @@ package characters;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import Armor.*;
 import Weapons.Weapon;
+import Armor.Armour;
+//import Armor.Chestplate;
+//import Armor.Helmet;
+//import Armor.Leggings;
 import consumibles.Consumible;
+
 
 
 public class Inventory {
@@ -13,9 +16,10 @@ public class Inventory {
 	
 
 	 private Weapon weapon;
-	 private Leggings pantalones;
+	 private Armour armour;
+	 /*private Leggings pantalones;
 	 private Helmet casco;
-	 private Chestplate pechera;
+	 private Chestplate pechera;*/
 	 
 	 
 	 private List<Consumible> consumibles;
@@ -58,6 +62,15 @@ public class Inventory {
 	 public void setConsumibles(List<Consumible> consumibles) {
 		 this.consumibles = consumibles;
 	 }
+	 
+	 public Armour getArmour() {
+			return armour;
+		}
+
+		 public void setArmour(Armour armour) {
+			 this.armour = armour;
+		 }
+
 	 
 	 @Override
 	 

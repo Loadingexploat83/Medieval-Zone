@@ -1,6 +1,7 @@
 package characters;
 
 import Weapons.Weapon;
+import consumibles.Consumible;
 
 public class Fortachon extends Enemy{
 
@@ -23,7 +24,7 @@ public class Fortachon extends Enemy{
 	}
 	public int Guard() {
 		
-		def = getInventario().getArmor().getDef();
+		def = getInventario().getArmour().getDef();
 		
 		return def;
 	}

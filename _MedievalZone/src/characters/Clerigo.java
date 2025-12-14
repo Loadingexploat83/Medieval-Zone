@@ -1,6 +1,11 @@
 package characters;
 
 import Weapons.Weapon;
+import consumibles.Consumible;
+import Armor.Armour;
+import java.util.List;
+
+
 
 public class Clerigo extends Enemy{
 	
@@ -14,6 +19,14 @@ public class Clerigo extends Enemy{
 		this.hp = 100;
 		this.dmg = 3;
 	}
+	public Clerigo(Armour armadura, Consumible consumible) {
+		
+		super();
+		this.def = getInventario().getArmour().getDef();
+		this.hp = 100;
+		this.dmg = 3;
+		getInventario().getConsumibles().addLast(consumible);
+	}
 	
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
@@ -23,7 +36,7 @@ public class Clerigo extends Enemy{
 	}
 	public int Guard() {
 		
-		def = getInventario().getArmor().getDef();
+		def = getInventario().getArmour().getDef();
 		
 		return def;
 	}
