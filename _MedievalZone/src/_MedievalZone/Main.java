@@ -2,6 +2,14 @@ package _MedievalZone;
 
 import java.util.Scanner;
 
+import Armor.Helmet;
+import Weapons.Axe;
+import characters.Caballero;
+import characters.Clerigo;
+import characters.Fortachon;
+import characters.Ladron;
+import characters.Scout;
+
 public class Main {
 
 	public static void main(String[] args) 

@@ -3,6 +3,9 @@ package _MedievalZone;
 import java.util.ArrayList;
 import java.util.List;
 
+import Armor.Armour;
+import Weapons.Weapon;
+
 
 public class Inventory {
 	

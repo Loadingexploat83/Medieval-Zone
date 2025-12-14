@@ -1,5 +1,8 @@
 package _MedievalZone;
 
+import Armor.Armour;
+import Weapons.Weapon;
+
 public abstract class Enemy implements CombatActions{
 
 	private String type;

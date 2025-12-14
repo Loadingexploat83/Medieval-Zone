@@ -1,4 +1,4 @@
-package _MedievalZone;
+package Armor;
 
 public class Leggings extends Armour {
 	

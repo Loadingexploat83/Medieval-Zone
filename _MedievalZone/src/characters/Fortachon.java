@@ -1,11 +1,14 @@
-package _MedievalZone;
+package characters;
 
-public class Clerigo extends Enemy{
-	
+import Weapons.Weapon;
+import _MedievalZone.Enemy;
+
+public class Fortachon extends Enemy{
+
 	private int hp;
 	private int def;
 	private int dmg;
-	public Clerigo() {
+	public Fortachon() {
 		
 		super();
 		this.def = 5;
@@ -49,4 +52,5 @@ public class Clerigo extends Enemy{
 	public void setDmg(int dmg) {
 		this.dmg = dmg;
 	}
+
 }

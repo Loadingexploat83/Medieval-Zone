@@ -1,4 +1,4 @@
-package _MedievalZone;
+package Weapons;
 
 public class Dagger extends Weapon {
 	

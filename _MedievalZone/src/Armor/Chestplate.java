@@ -1,4 +1,4 @@
-package _MedievalZone;
+package Armor;
 
 public class Chestplate extends Armour {
 	private static int mult = 5;

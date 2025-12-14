@@ -1,4 +1,4 @@
-package _MedievalZone;
+package Armor;
 
 public abstract class Armour {
 	
