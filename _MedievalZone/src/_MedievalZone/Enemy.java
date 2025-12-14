@@ -1,6 +1,6 @@
 package _MedievalZone;
 
-public class Enemy implements CombatActions{
+public abstract class Enemy implements CombatActions{
 
 	private String type;
 	private int hp;
@@ -8,12 +8,18 @@ public class Enemy implements CombatActions{
 	private int dmg;
 	private Inventory inventario;
 	
-	public Enemy() {
-		
-		Inventory inventario = new Inventory();
-		this.inventario = inventario;
+	public Enemy(Weapon weapon, Armour armadura) {
+		this.inventario = new Inventory(weapon, armadura);
 		this.hp = 100;
 	}
+		
+	public Enemy(Weapon weapon, Armour armadura, Consumible consumible) {
+			
+			this.inventario = new Inventory(weapon, armadura, consumible);
+			this.hp = 100;
+	}
+	
+	
 	
 	public void Hit(int dmg) {
 		

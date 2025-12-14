@@ -5,11 +5,29 @@ import java.util.List;
 
 
 public class Inventory {
+	
+	
 
 	 private Weapon weapon;
 	 private Armour armadura;
 	 private List<Consumible> consumibles = new ArrayList<>();
 	 
+	 public Inventory(Weapon weapon, Armour armadura) 
+	 {
+		 	consumibles = new ArrayList<>();
+			this.weapon = weapon;
+			
+			
+	 }
+	 
+	 public Inventory(Weapon weapon, Armour armadura, Consumible consumible ) 
+	 {
+		 consumibles = new ArrayList<>();
+		 this.weapon = weapon;
+		 this.armadura = armadura;
+		 
+		 consumibles.addLast(consumible);
+	 }
 	 
 	 public void delConsum(Consumible consum) {
 		 

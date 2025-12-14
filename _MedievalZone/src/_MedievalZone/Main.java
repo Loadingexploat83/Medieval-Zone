@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		// TODO Auto-generated method stub
 		
 		//E SIGNIFICA ENEMY, P SIGNIFICA PLAYER;
@@ -18,7 +19,12 @@ public class Main {
 		int turn  = 0;
 		int decision = 0;
 		
-		if(numJug <= 4) {
+		if(numJug > 4) 
+		{
+			System.out.println("Max jugadores permitidos son 4");
+			System.out.println("Poniendo la cantidad de jugadores a 4");
+			numJug = 4;
+		}
 		
 			for(int i = 0; i < numJug; i++) {
 				
@@ -33,6 +39,7 @@ public class Main {
 				switch (tipo){
 					
 					case 1:
+						
 						p[i] = new Clerigo();
 						break;
 					case 2:
@@ -49,17 +56,20 @@ public class Main {
 						break;
 				}
 			}
-			e[0] = new Enemy();
-		}
-		while(p[0].getHp() != 0 && turn <= 3) { 
+			//e[0] = new Enemy();
+		
+		
+		
+		while(p[0].getHp() != 0 && turn <= 3) 
+		{ 
 			
 			System.out.println("Tu turno:");
 			System.out.println("1-. Investigar");
 			System.out.println("2-. Atacar");
 			System.out.println("3-. Inventario");
 			decision = sc.nextInt();
-			switch (decision){
-			
+			switch (decision)
+			{
 				case 1:
 					p[0].getInventario().setWeapon(new Axe());
 					p[0].getInventario().setArmor(new Helmet());
@@ -73,8 +83,10 @@ public class Main {
 					p[0].getInventario().toString();
 					break;
 			}
+			
 			turn ++;
 		}
+		
+		
 	}
-
 }
