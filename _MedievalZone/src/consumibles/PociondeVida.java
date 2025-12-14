@@ -1,4 +1,6 @@
-package _MedievalZone;
+package consumibles;
+
+import _MedievalZone.Consumible;
 
 public class PociondeVida extends Consumible{
 
