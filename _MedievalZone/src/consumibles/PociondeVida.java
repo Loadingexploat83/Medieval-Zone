@@ -1,20 +1,16 @@
 package consumibles;
 
-import characters.Enemy;
+public class PociondeVida extends Consumible {
 
-public class PociondeVida extends Consumible{
+    private int curacion;
 
-	
-	private int hp;
-	
-	public PociondeVida() {
-		
-		this.hp = 15;
-	}
-	
-	@Override
-	public void Action(Enemy p) {
-		
-		p.Hit(-hp);
-	}
+    public PociondeVida() {
+        super("Poción de Vida");
+        this.curacion = 15;
+    }
+
+    @Override
+    public void usar(Character objetivo) {
+        objetivo.curar(curacion);
+    }
 }
