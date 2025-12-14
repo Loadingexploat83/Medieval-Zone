@@ -1,4 +1,6 @@
-package _MedievalZone;
+package consumibles;
+
+import characters.Enemy;
 
 public class Consumible {
 

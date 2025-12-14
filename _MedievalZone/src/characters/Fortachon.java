@@ -1,7 +1,6 @@
 package characters;
 
 import Weapons.Weapon;
-import _MedievalZone.Enemy;
 
 public class Fortachon extends Enemy{
 

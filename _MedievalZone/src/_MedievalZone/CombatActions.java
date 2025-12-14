@@ -1,6 +1,7 @@
 package _MedievalZone;
 
 import Weapons.Weapon;
+import characters.Enemy;
 
 public interface CombatActions {
 

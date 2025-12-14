@@ -1,6 +1,6 @@
 package consumibles;
 
-import _MedievalZone.Consumible;
+import characters.Enemy;
 
 public class PociondeVida extends Consumible{
 

@@ -1,7 +1,9 @@
-package _MedievalZone;
+package characters;
 
 import Armor.Armour;
 import Weapons.Weapon;
+import _MedievalZone.CombatActions;
+import consumibles.Consumible;
 
 public abstract class Enemy implements CombatActions{
 
@@ -10,6 +12,12 @@ public abstract class Enemy implements CombatActions{
 	private int def;
 	private int dmg;
 	private Inventory inventario;
+	
+	public Enemy() {
+		this.inventario = new Inventory();
+		this.hp = 100;
+	
+	}
 	
 	public Enemy(Weapon weapon, Armour armadura) {
 		this.inventario = new Inventory(weapon, armadura);

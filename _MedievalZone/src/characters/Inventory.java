@@ -1,10 +1,11 @@
-package _MedievalZone;
+package characters;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import Armor.Armour;
 import Weapons.Weapon;
+import consumibles.Consumible;
 
 
 public class Inventory {
@@ -14,6 +15,11 @@ public class Inventory {
 	 private Weapon weapon;
 	 private Armour armadura;
 	 private List<Consumible> consumibles = new ArrayList<>();
+	 
+	 public Inventory() 
+	 {
+		 consumibles = new ArrayList<>();
+	 }
 	 
 	 public Inventory(Weapon weapon, Armour armadura) 
 	 {
