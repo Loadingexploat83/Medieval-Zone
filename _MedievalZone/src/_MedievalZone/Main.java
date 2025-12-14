@@ -10,11 +10,17 @@ import characters.Enemy;
 import characters.Fortachon;
 import characters.Ladron;
 import characters.Scout;
+import partida.Partida;
 
 public class Main {
 
 	public static void main(String[] args) 
 	{
+		
+		Partida partida = new Partida();
+		
+		partida.start();
+		
 		// TODO Auto-generated method stub
 		
 		//E SIGNIFICA ENEMY, P SIGNIFICA PLAYER;
