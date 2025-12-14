@@ -1,4 +1,5 @@
 package partida;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -12,21 +13,7 @@ public class Partida {
 	private int turnCount = 0;
 	private int enemyCount = 0;
 	private String location;
-	private List<String> availableLocations = List.of( 
-			
-		"Parque placentero",
-		"Montañas estrepitosas",
-		"Socabon Soterrado",
-		"Masilla explosiva",
-		"Republica Dominicana",
-		"Baños turcos",
-		"villorrio tailandes",
-		"Ayuntamiento 12",
-		"Cuenca, la villa del Mega Caballero", //test
-		"Extremadura",
-		"Poblado foráneo"
-			
-	);
+	private List<String> availableLocations = new ArrayList<>();
 	
 	Scanner sc;
 	Enemy[] enemy;
@@ -43,9 +30,25 @@ public class Partida {
 			enemy[i] = enemyGenerator();
 		
 		}
+		
+		fillAvailableLocations();
 	}
 	
 	
+	
+	private void fillAvailableLocations() {
+		availableLocations.add("Parque placentero");
+		availableLocations.add("Montañas estrepitosas");
+		availableLocations.add("Socabon Soterrado");
+		availableLocations.add("Masilla explosiva");
+		availableLocations.add("Republica Dominicana");
+		availableLocations.add("Baños turcos");
+		availableLocations.add("Villorrio tailandés");
+		availableLocations.add("Ayuntamiento 12");
+		availableLocations.add("Cuenca, la villa del Mega Caballero");
+		availableLocations.add("Extremadura");
+		availableLocations.add("Poblado foráneo");
+	}
 	
 	
 	public void start(){
@@ -66,14 +69,11 @@ public class Partida {
 			numJug = 4;
 		}
 		
-		
+		// Eliges los personajes de tu party
 		createParty();
+		
 		// Seleccionar un spawnpoint
-		System.out.println("¿Donde desea empezar su aventura?");
-		for (int i = 0; i < availableLocations.size(); i++) 
-		{
-			System.out.println((i+1)+ ". " + availableLocations.get(i));
-		}
+		moverte();
 		
 		
 		while(playerParty[0].getHp()>=0) {
@@ -160,10 +160,6 @@ public class Partida {
 	}
 	
 	
-	private void storm() {
-		
-	}
-	
 	public void volcarPartida() {
 		
 		
@@ -179,11 +175,14 @@ public class Partida {
 		
 		while (stormComing == 0) 
 		{
-			Scanner scanner = new Scanner(System.in);
+			sc = new Scanner(System.in);
 			System.out.println("Selecciona tu siguiente accion...");
-			System.out.println("1. Cambiar de zona, 2. Descansar, 3. Explorar");
+			System.out.println("1. Cambiar de zona \n2. Descansar  \n3. Explorar \n"
+					+ "4. Abrir Inventario \n5. Mirar Stats");
 			
-			int selection = scanner.nextInt();
+				
+			
+			selection = sc.nextInt();
 			
 			if(turnCount == 5) 
 			{
@@ -191,6 +190,7 @@ public class Partida {
 				System.out.println("Tienes que moverte!");
 				
 			} else 
+				
 			{
 				
 				stormComing = 1;
@@ -205,14 +205,26 @@ public class Partida {
 			case 1:
 				
 				moverte();
+				break;
 				
 			case 2:
 				
 				descansar();
+				break;
 				
 			case 3:
 				
-				explore();
+				//explore();
+				playerParty[0].Hit(40);
+				break;
+				
+			case 4:
+				abrirInventario();
+				break;
+			
+			case 5:
+				checkStats();
+				break;
 		
 		
 		}
@@ -220,15 +232,26 @@ public class Partida {
 	
 	}
 	
+	void abrirInventario() 
+	{
+		
+		
+	}
+	
+	void checkStats() 
+	{
+		
+	}
+	
 	void moverte() {
-		int selection;
+		
 		
 		do {
-			System.out.println("Localizaciones Disponibles: ");
+			System.out.println("\nLocalizaciones Disponibles: ");
 			
 			for(int i = 0; i < availableLocations.size(); i++) 
 			{
-				System.out.println((i+1) + availableLocations.get(i));
+				System.out.println((i+1) + ". "+ availableLocations.get(i));
 			
 			}
 		
@@ -237,20 +260,26 @@ public class Partida {
 		{
 			System.out.println("Error, no se a encontrado la localizacion");
 		}
+		
 		} while(selection > availableLocations.size());
 			
 		
 		location = availableLocations.get(selection-1);
 		
 		availableLocations.remove(selection-1);
+		
+		System.out.println("\nEstas en: " + location + "\n");
 	}
 	
 	void descansar() {
+		int randomNum = (int) (Math.random()*30 + 10);
+		int curaTotal = 0;
 		
+		for (int i = 0; i < playerParty.length; i++) {
+			curaTotal += playerParty[i].healHP(randomNum);
+		}
 		
-		healParty(Math.random()*30 + 10);
-		
-		System.out.println("Descansas... Te has curado: " + " hp");
+		System.out.println("Descansas... Te has curado: " + curaTotal + " hp");
 		
 	}
 	

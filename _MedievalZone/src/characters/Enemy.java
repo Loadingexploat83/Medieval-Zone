@@ -9,13 +9,14 @@ public abstract class Enemy implements CombatActions{
 
 	private String type;
 	private int hp;
+	private int maxHp = 100;
 	private int def;
 	private int dmg;
 	private Inventory inventario;
 	
 	public Enemy() {
 		this.inventario = new Inventory();
-		this.hp = 100;
+		this.hp = maxHp;
 	
 	}
 	
@@ -53,6 +54,19 @@ public abstract class Enemy implements CombatActions{
 	}
 	
 	
+	public int healHP(int heal) 
+	{
+		int healthOld = this.hp;
+		int actualHeal;
+		this.hp += heal;
+		this.hp = Math.clamp(hp, 0, maxHp);
+		
+		
+		actualHeal = this.hp - healthOld;
+		return actualHeal;
+	}
+	
+	
 	//Setters & getters
 	
 	public String getType() {
@@ -67,6 +81,7 @@ public abstract class Enemy implements CombatActions{
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
+	
 	public int getDef() {
 		return def;
 	}

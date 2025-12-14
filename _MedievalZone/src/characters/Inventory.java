@@ -3,7 +3,7 @@ package characters;
 import java.util.ArrayList;
 import java.util.List;
 
-import Armor.Armour;
+import Armor.*;
 import Weapons.Weapon;
 import consumibles.Consumible;
 
@@ -13,8 +13,12 @@ public class Inventory {
 	
 
 	 private Weapon weapon;
-	 private Armour armadura;
-	 private List<Consumible> consumibles = new ArrayList<>();
+	 private Leggings pantalones;
+	 private Helmet casco;
+	 private Chestplate pechera;
+	 
+	 
+	 private List<Consumible> consumibles;
 	 
 	 public Inventory() 
 	 {
@@ -23,17 +27,16 @@ public class Inventory {
 	 
 	 public Inventory(Weapon weapon, Armour armadura) 
 	 {
-		 	consumibles = new ArrayList<>();
-			this.weapon = weapon;
+		 
+		this();
+		this.weapon = weapon;
 			
 			
 	 }
 	 
 	 public Inventory(Weapon weapon, Armour armadura, Consumible consumible ) 
 	 {
-		 consumibles = new ArrayList<>();
-		 this.weapon = weapon;
-		 this.armadura = armadura;
+		 this(weapon, armadura);
 		 
 		 consumibles.addLast(consumible);
 	 }
@@ -48,12 +51,7 @@ public class Inventory {
 	 public void setWeapon(Weapon weapon) {
 		 this.weapon = weapon;
 	 }
-	 public Armour getArmor() {
-		 return armadura;
-	 }
-	 public void setArmor(Armour armadura) {
-		 this.armadura = armadura;
-	 }
+	 
 	 public List<Consumible> getConsumibles() {
 		 return consumibles;
 	 }
