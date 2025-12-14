@@ -18,6 +18,7 @@ public abstract class Weapon {
 	//adds modifier to the damage
 	public void modDmg(int mod) {
 		this.dmg += mod;
+		if(this.dmg<=0) this.dmg = 1;
 	}
 	
 	//devuelve Weight value
