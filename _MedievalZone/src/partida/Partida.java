@@ -29,18 +29,18 @@ public class Partida {
 	);
 	
 	Scanner sc;
-	Enemy[] e;
-	Enemy[] p;
+	Enemy[] enemy;
+	Enemy[] playerParty;
 	int numJug;
 	int decision;
 	
 	public Partida() {
 		
-		e = new Enemy[20];
+		enemy = new Enemy[20];
 	
-		for(int i = 0; i < e.length; i++) {
+		for(int i = 0; i < enemy.length; i++) {
 		
-		e[i] = enemyGenerator();
+			enemy[i] = enemyGenerator();
 		
 		}
 	}
@@ -48,13 +48,13 @@ public class Partida {
 	
 	
 	
-	void Start(){
+	public void start(){
 		sc = new Scanner(System.in);
-		e = new Enemy[16];
+		enemy = new Enemy[16];
 		System.out.println("Bienvenido");
 		System.out.println("Numero de jugadores (max 4)");
 		numJug = sc.nextInt();
-		p = new Enemy[numJug];
+		playerParty = new Enemy[numJug];
 		
 		turnCount  = 0;
 		decision = 0;
@@ -67,22 +67,18 @@ public class Partida {
 		}
 		
 		
-		CreateParty();
+		createParty();
 		// Seleccionar un spawnpoint
 		System.out.println("¿Donde desea empezar su aventura?");
-		for (int i = 0; i < locations.length; i++) 
+		for (int i = 0; i < availableLocations.size(); i++) 
 		{
-			System.out.println((i+1) + locations[i]);
+			System.out.println((i+1)+ ". " + availableLocations.get(i));
 		}
 		
 		
-		while(p[0].getHp()>=0) {
+		while(playerParty[0].getHp()>=0) {
 			
-			
-			
-		
-			
-			
+			select();
 		}
 		
 			
@@ -135,23 +131,23 @@ public class Partida {
 				
 				case 1:
 					
-					p[i] = new Clerigo();
+					playerParty[i] = new Clerigo();
 					break;
 				case 2:
-					p[i] = new Ladron();
+					playerParty[i] = new Ladron();
 					break;
 				case 3:
-					p[i] = new Caballero();
+					playerParty[i] = new Caballero();
 					break;
 				case 4:
-					p[i] = new Fortachon();
+					playerParty[i] = new Fortachon();
 					break;
 				case 5:
-					p[i] = new Scout();
+					playerParty[i] = new Scout();
 					break;
 				
 				case 6:
-					p[i] = new enemigoBaibi();
+					playerParty[i] = new enemigoBaibi();
 					break;
 				default:
 					System.out.println("Error en generacion de personaje");
@@ -175,23 +171,27 @@ public class Partida {
 	
 
 	
-	void select() {
+	void select() 
+	{
 		
 
 		int stormComing = 0;
 		
-		while (stormComing == 0) {
+		while (stormComing == 0) 
+		{
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("Selecciona tu siguiente accion...");
 			System.out.println("1. Cambiar de zona, 2. Descansar, 3. Explorar");
 			
 			int selection = scanner.nextInt();
 			
-			if(turnCount == 5) {
+			if(turnCount == 5) 
+			{
 				
 				System.out.println("Tienes que moverte!");
 				
-			} else {
+			} else 
+			{
 				
 				stormComing = 1;
 				
@@ -199,7 +199,8 @@ public class Partida {
 			
 		}
 		
-		switch (selection) {
+		switch (selection)
+		{
 		
 			case 1:
 				
@@ -220,22 +221,38 @@ public class Partida {
 	}
 	
 	void moverte() {
+		int selection;
 		
-		System.out.println("availableLocations: ");
-		
-		for(int i = 0; i < availableLocations.size(); i++) {
+		do {
+			System.out.println("Localizaciones Disponibles: ");
 			
-			System.out.println((i+1) + availableLocations.get(i));
+			for(int i = 0; i < availableLocations.size(); i++) 
+			{
+				System.out.println((i+1) + availableLocations.get(i));
+			
+			}
 		
+		selection = sc.nextInt();
+		if(selection > availableLocations.size()) 
+		{
+			System.out.println("Error, no se a encontrado la localizacion");
 		}
+		} while(selection > availableLocations.size());
+			
 		
-		int locationSelection = sc.nextInt();
-		location = availableLocations.get(locationSelection-1);
+		location = availableLocations.get(selection-1);
 		
-		availableLocations.remove(locationSelection-1);
+		availableLocations.remove(selection-1);
 	}
 	
-	
+	void descansar() {
+		
+		
+		healParty(Math.random()*30 + 10);
+		
+		System.out.println("Descansas... Te has curado: " + " hp");
+		
+	}
 	
 }	
 
