@@ -38,6 +38,7 @@ public class M249 extends Weapon {
 		this.bullet += num;
 	}
 	
+	//use this instead of getDmg();
 	public int useM249() {
 		int auxdmg = 0;
 		int i = 0;
