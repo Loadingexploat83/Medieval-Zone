@@ -693,13 +693,11 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="38IP93Uamsm1xpDZap5J-1" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;ModWeapon&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ comprobarModificacion(): void&lt;br&gt;+ modifica(int mod): void&lt;/p&gt;" vertex="1">
-          <mxGeometry height="140" width="190" x="2270" y="334" as="geometry" />
+          <mxGeometry height="86" width="190" x="2270" y="334" as="geometry" />
         </mxCell>
         <mxCell id="38IP93Uamsm1xpDZap5J-2" edge="1" parent="1" source="aMCV60vvPV87fuuqKyco-7" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="38IP93Uamsm1xpDZap5J-1" value="">
           <mxGeometry relative="1" width="160" as="geometry">
-            <Array as="points">
-              <mxPoint x="2210" y="450" />
-            </Array>
+            <Array as="points" />
             <mxPoint x="2480" y="430" as="sourcePoint" />
             <mxPoint x="2640" y="430" as="targetPoint" />
           </mxGeometry>
