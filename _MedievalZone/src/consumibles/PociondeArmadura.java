@@ -10,11 +10,11 @@ public class PociondeArmadura extends Consumible {
     public PociondeArmadura() {
         super("Poción de Armadura");
         this.aumentoDefensa = 5;
-        this.turnos = 2;
+        //this.turnos = 2;
     }
 
     @Override
     public void usar(Character objetivo) {
-        objetivo.aumentarDefensa(aumentoDefensa, turnos);
+        objetivo.aumentarDefensa(aumentoDefensa);
     }
 }

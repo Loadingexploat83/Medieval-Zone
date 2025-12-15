@@ -9,11 +9,11 @@ public class PociondeFuerza extends Consumible {
     public PociondeFuerza() {
         super("Poción de Fuerza");
         this.aumentoDanio = 3;
-        this.turnos = 2;
+        //this.turnos = 2;
     }
 
     @Override
     public void usar(Character objetivo) {
-        objetivo.aumentarDanio(aumentoDanio, turnos);
+        objetivo.aumentarDanio(aumentoDanio);
     }
 }
