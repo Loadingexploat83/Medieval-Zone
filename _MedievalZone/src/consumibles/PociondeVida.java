@@ -1,6 +1,8 @@
 package consumibles;
 import characters.*;
 
+import characters.Enemy;
+
 public class PociondeVida extends Consumible {
 
     private int curacion;
@@ -12,7 +14,6 @@ public class PociondeVida extends Consumible {
 
     @Override
     public void usar(Enemy objetivo) {
-        
-    	//objetivo.curar(curacion);
+    
     }
 }

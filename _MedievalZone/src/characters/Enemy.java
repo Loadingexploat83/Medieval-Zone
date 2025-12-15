@@ -8,6 +8,8 @@ import consumibles.Consumible;
 public abstract class Enemy implements CombatActions{
 
 	private String type;
+	private String name;
+	
 	private int hp;
 	private int maxHp = 100;
 	private int def;
@@ -22,13 +24,13 @@ public abstract class Enemy implements CombatActions{
 	
 	public Enemy(Weapon weapon, Armour armadura) {
 		this.inventario = new Inventory(weapon, armadura);
-		this.hp = 100;
+		this.hp = maxHp;
 	}
 		
 	public Enemy(Weapon weapon, Armour armadura, Consumible consumible) {
 			
 			this.inventario = new Inventory(weapon, armadura, consumible);
-			this.hp = 100;
+			this.hp = maxHp;
 	}
 	
 	
@@ -87,11 +89,21 @@ public abstract class Enemy implements CombatActions{
 		
 		
 		actualHeal = this.hp - healthOld;
+		
+		System.out.println(name + " se a curado " + actualHeal);
 		return actualHeal;
 	}
 	
 	
 	//Setters & getters
+	
+	public String getName() {
+		return this.name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 	public String getType() {
 		return type;

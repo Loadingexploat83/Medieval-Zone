@@ -1,7 +1,7 @@
 package consumibles;
 import characters.*;
 
-
+import characters.Enemy;
 
 public abstract class Consumible {
 

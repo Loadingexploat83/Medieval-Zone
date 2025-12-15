@@ -2,6 +2,8 @@ package characters;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Weapons.Fist;
 import Weapons.Weapon;
 import Armor.Armour;
 //import Armor.Chestplate;
@@ -27,6 +29,7 @@ public class Inventory {
 	 public Inventory() 
 	 {
 		 consumibles = new ArrayList<>();
+		 this.weapon = new Fist();
 	 }
 	 
 	 public Inventory(Weapon weapon, Armour armadura) 
@@ -42,7 +45,11 @@ public class Inventory {
 	 {
 		 this(weapon, armadura);
 		 
-		 consumibles.addLast(consumible);
+		 consumibles.add(consumible);
+	 }
+	 
+	 public void addConsum(Consumible consum) {
+		 consumibles.add(consum);
 	 }
 	 
 	 public void delConsum(Consumible consum) {
@@ -76,7 +83,9 @@ public class Inventory {
 	 
 	 public String toString() {
 		 
-		 return "Tienes este arma " + weapon.toString() + ", esta armadura" + /*armor.toString() +*/ ", Y estos consumibles" + consumibles;
+		 return "Tienes este arma: " + weapon.toString() + 
+				 ", esta armadura" + /*armor.toString() +*/ 
+				 ", Y estos consumibles" + consumibles;
 	 }
 	 
 	 
