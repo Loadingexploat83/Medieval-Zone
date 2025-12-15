@@ -9,6 +9,10 @@ public class Fist extends Weapon{
 		super(baseDmg,baseWeight);
 	}
 	
+	public int useWeapon(){
+		return getDmg();
+	}
+	
 	@Override
 	public String toString() {
 		return "No llevas arma y tienes "+ getDmg() +" de Dmg y "+ getWeight()+ " de peso";

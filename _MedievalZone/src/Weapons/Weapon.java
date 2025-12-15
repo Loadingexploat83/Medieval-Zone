@@ -34,6 +34,9 @@ public abstract class Weapon {
 		this.weight += mod;
 	}
 	
+	
+	public abstract int useWeapon();
+	
 	//needs for each Weapon
 	@Override
 	public abstract String toString();

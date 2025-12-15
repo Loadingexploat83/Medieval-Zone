@@ -26,6 +26,10 @@ public class Hammer extends Weapon {
 			return 1;
 		}
 	}
+	
+	public int useWeapon() {
+		return getDmg();
+	}
 
 	@Override
 	public String toString() {

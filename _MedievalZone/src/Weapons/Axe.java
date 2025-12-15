@@ -19,10 +19,10 @@ public class Axe extends Weapon {
 		modWeight(mod*mult);
 	}
 	
-	public int useAxe(Weapon enemyWeapon) {
+	public int useWeapon() {
 		if(Math.random()*100<percent) {
 			System.out.println("instead of hitting the enemy you hit their Weapon");
-			enemyWeapon.modDmg(-baseDmg);
+			//enemyWeapon.modDmg(-baseDmg);
 			return 0;
 		}else {
 			return getDmg();

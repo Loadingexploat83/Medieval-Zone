@@ -18,7 +18,7 @@ public class Dagger extends Weapon {
 	}
 	
 	
-	public int useDagger() {
+	public int useWeapon() {
 		if(Math.random()*100 >percent) {
 			return getDmg();
 		}else {

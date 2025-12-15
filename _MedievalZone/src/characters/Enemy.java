@@ -59,7 +59,7 @@ public abstract class Enemy implements CombatActions{
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
 		
-		dmg = arma.getDmg() - e.getInventario().getArmour().getDef();
+		dmg = arma.useWeapon() - e.getInventario().getArmour().getDef();
 		e.Hit(dmg);
 	}
 	public int Guard(int aumento) {
