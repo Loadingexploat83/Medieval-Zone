@@ -32,12 +32,6 @@ public class Fortachon extends Enemy{
 	
 	@Override
 	
-	public void UseItem(Consumible consum) {
-		
-		consum.usar(this);
-		getInventario().delConsum(consum);
-	}
-	
 	public String toString() {
 		
 		return "Fortachon" + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
@@ -59,16 +53,16 @@ public class Fortachon extends Enemy{
 		switch(decision) {
 			
 			case 1:
-				//companeros[0].aumentoFuerza(5);
+				companeros[0].aumentarFuerza(5);
 				break;
 			case 2:
-				//companeros[1].aumentoFuerza(5);
+				companeros[1].aumentarFuerza(5);
 				break;
 			case 3:
-				//companeros[2].aumentoFuerza(5);
+				companeros[2].aumentarFuerza(5);
 				break;
 			case 4:
-				//companeros[3].aumentoFuerza(5);
+				companeros[3].aumentarFuerza(5);
 		}		
 	}
 	

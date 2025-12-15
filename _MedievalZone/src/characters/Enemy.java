@@ -77,6 +77,8 @@ public abstract class Enemy implements CombatActions{
 	}
 	public void UseItem(Consumible consum) {
 		
+		consum.usar(this);
+		getInventario().delConsum(consum);
 	}
 	
 	

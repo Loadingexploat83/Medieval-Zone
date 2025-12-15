@@ -40,12 +40,6 @@ public class Clerigo extends Enemy{
 	
 	@Override
 	
-	public void UseItem(Consumible consum) {
-		
-		consum.usar(this);
-		getInventario().delConsum(consum);
-	}
-	
 	public String toString() {
 		
 		return "Clerigo" + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 

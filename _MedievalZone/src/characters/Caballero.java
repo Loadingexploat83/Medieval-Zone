@@ -29,15 +29,6 @@ public class Caballero extends Enemy{
 		this.dmg = getInventario().getWeapon().getDmg();
 	}
 	
-	
-	@Override
-	
-	public void UseItem(Consumible consum) {
-		
-		consum.usar(this);
-		getInventario().delConsum(consum);
-	}
-	
 	public void habilidad(Enemy[] companeros) {
 		
 		for(int i = 0; i < companeros.length; i++) {
@@ -45,6 +36,7 @@ public class Caballero extends Enemy{
 			companeros[i].Guard(5);
 		}
 	}
+	@Override
 	public String toString() {
 		
 		return "Caballero" + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 

@@ -66,23 +66,6 @@ public class Scout extends Enemy{
 	}
 	
 	@Override
-	public void Attack(Weapon arma, Enemy e) {
-		
-		dmg = arma.getDmg() - e.getInventario().getArmour().getDef();
-		e.Hit(dmg);
-	}
-	public int Guard(int aumento) {
-		
-		int newDef = getInventario().getArmour().getDef() + aumento;
-		getInventario().getArmour().setDef (newDef);
-		System.out.println("Tu defensa ha aumentado");
-		return def;
-	}
-	public void UseItem(Consumible consum) {
-		
-		consum.usar(this);
-		getInventario().delConsum(consum);
-	}
 	
 	public String toString() {
 		
