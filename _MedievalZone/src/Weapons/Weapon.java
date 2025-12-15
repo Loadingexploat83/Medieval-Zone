@@ -1,9 +1,10 @@
 package Weapons;
 
-public abstract class Weapon {
+public abstract class Weapon implements WeaponMod {
 	//atributos
 	private int dmg;
 	private int weight;
+	private int mod;
 	
 	public Weapon(int dmg, int weight){
 		this.dmg = dmg;
@@ -32,6 +33,15 @@ public abstract class Weapon {
 	//adds modifier to the weight
 	public void modWeight(int mod) {
 		this.weight += mod;
+	}
+	
+	public void comprobarModificacion(){
+		System.out.println("The Mod used is of value: " + this.mod);
+	}
+	
+	public void modifica(int mod) {
+		modDmg(mod);
+		modWeight(mod);
 	}
 	
 	

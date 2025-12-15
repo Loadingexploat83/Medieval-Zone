@@ -8,6 +8,10 @@ public class Fist extends Weapon{
 	public Fist() {
 		super(baseDmg,baseWeight);
 	}
+	public Fist(int mod) {
+		super(baseDmg,baseWeight);
+		modifica(mod);
+	}
 	
 	public int useWeapon(){
 		return getDmg();

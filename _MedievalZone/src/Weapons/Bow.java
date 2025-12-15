@@ -15,15 +15,13 @@ public class Bow extends Weapon {
 	//solo modifica daño y peso
 	public Bow(int mod){
 		super(baseDmg,baseWeight);
-		modDmg(mod*mult);
-		modWeight(mod*mult);
+		modifica(mod);
 		this.setArrows(5);
 	}
 	//lo mismo que el anterior pero especifica el numero de flechas
 	public Bow(int mod, int numArrows){
 		super(baseDmg,baseWeight);
-		modDmg(mod*mult);
-		modWeight(mod*mult);
+		modifica(mod);
 		this.setArrows(numArrows);
 	}
 	

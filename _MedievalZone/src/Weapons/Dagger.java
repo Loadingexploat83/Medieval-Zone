@@ -13,8 +13,7 @@ public class Dagger extends Weapon {
 	
 	public Dagger(int mod){
 		super(baseDmg,baseWeight);
-		modDmg(mod*mult);
-		modWeight(mod*mult);
+		modifica(mod);
 	}
 	
 	

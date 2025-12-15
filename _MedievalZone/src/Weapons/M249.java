@@ -16,6 +16,7 @@ public class M249 extends Weapon {
 	
 	public M249(int mod){
 		super(baseDmg, baseWeight);
+		modifica(mod);
 		bullet = 20;
 		percent = 50 + mod*mult;
 	}
