@@ -39,7 +39,9 @@ public abstract class Weapon {
 	
 	//needs for each Weapon
 	@Override
-	public abstract String toString();
+	public String toString() {
+		return getClass().getSimpleName() + " con " + getDmg() +" Attack and "+ getWeight()+ " Weight";
+	}
 
 	
 }

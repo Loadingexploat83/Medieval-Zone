@@ -22,14 +22,14 @@ public abstract class Enemy implements CombatActions{
 	
 	}
 	
-	public Enemy(Weapon weapon, Armour armadura) {
-		this.inventario = new Inventory(weapon, armadura);
+	public Enemy(Weapon weapon) {
+		this.inventario = new Inventory(weapon);
 		this.hp = maxHp;
 	}
 		
-	public Enemy(Weapon weapon, Armour armadura, Consumible consumible) {
+	public Enemy(Weapon weapon, Consumible consumible) {
 			
-			this.inventario = new Inventory(weapon, armadura, consumible);
+			this.inventario = new Inventory(weapon, consumible);
 			this.hp = maxHp;
 	}
 	
@@ -59,7 +59,12 @@ public abstract class Enemy implements CombatActions{
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
 		
-		dmg = arma.useWeapon() - e.getInventario().getDefPoints();
+		try {
+		dmg = arma.useWeapon() / e.getInventario().getDefPoints();
+		} catch (ArithmeticException err) {
+			dmg = arma.useWeapon();
+		}
+		System.out.println(name + " a atacado por " + dmg + " de DMG a " +e.getName());
 		e.Hit(dmg);
 	}
 	public int Guard(int aumento) {
@@ -121,7 +126,7 @@ public abstract class Enemy implements CombatActions{
 	}
 	
 	public int getDef() {
-		return def;
+		return def + inventario.getDefPoints();
 	}
 	public void setDef(int def) {
 		this.def = def;
@@ -138,6 +143,12 @@ public abstract class Enemy implements CombatActions{
 	}
 	public void setInventario(Inventory inventario) {
 		this.inventario = inventario;
+	}
+	
+	public String toString() {
+		
+		return name + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
+				", consumibles:" + getInventario().getConsumibles();
 	}
 }	
 	

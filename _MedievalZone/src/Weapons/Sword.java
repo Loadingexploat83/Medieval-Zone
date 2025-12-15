@@ -49,10 +49,5 @@ public class Sword extends Weapon {
 			
 		
 	}
-	
-	@Override
-	public String toString() {
-		return "This Weapon is a Sword With "+ getDmg() +" Attack and "+ getWeight()+ " Weight";
-	}
 
 }

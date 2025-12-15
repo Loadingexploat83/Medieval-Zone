@@ -27,9 +27,5 @@ public class Dagger extends Weapon {
 		}
 	}
 	
-	@Override
-	public String toString() {
-		return "This Weapon is a Dagger with "+ getDmg() + " Attack and " + getWeight() + " Weight.";
-	}
 
 }

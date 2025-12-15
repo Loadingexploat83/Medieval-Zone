@@ -18,6 +18,10 @@ public class Caballero extends Enemy{
 		this.def = 5;
 		this.hp = 100;
 		this.dmg = 3;
+		
+		getInventario().setWeapon(new Sword());
+		getInventario().addArmour(new Leggings());
+		getInventario().addArmour(new Chestplate());
 	}
 	public Caballero(Armour armadura, Weapon arma) {
 		

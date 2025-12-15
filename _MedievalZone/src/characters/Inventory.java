@@ -29,10 +29,11 @@ public class Inventory {
 	 public Inventory() 
 	 {
 		 consumibles = new ArrayList<>();
+		 armour = new ArrayList<>();
 		 this.weapon = new Fist();
 	 }
 	 
-	 public Inventory(Weapon weapon, Armour armadura) 
+	 public Inventory(Weapon weapon) 
 	 {
 		 
 		this();
@@ -41,9 +42,9 @@ public class Inventory {
 			
 	 }
 	 
-	 public Inventory(Weapon weapon, Armour armadura, Consumible consumible ) 
+	 public Inventory(Weapon weapon, Consumible consumible ) 
 	 {
-		 this(weapon, armadura);
+		 this(weapon);
 		 
 		 consumibles.add(consumible);
 	 }
@@ -65,7 +66,7 @@ public class Inventory {
 		 }else {
 			 
 			 this.armour.addLast(armadura);
-			 System.out.println("Has añadido" + armadura + " a tu armadura");
+			 //System.out.println("Has añadido" + armadura + " a tu armadura");
 		 }
 	 }
 	 

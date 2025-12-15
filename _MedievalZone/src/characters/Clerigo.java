@@ -22,7 +22,6 @@ public class Clerigo extends Enemy{
 		
 		super();
 		
-		this.hp = 100;
 		getInventario().getConsumibles().addLast(consumible);
 		getInventario().addArmour(armadura);
 		this.def =  getInventario().getDefPoints();

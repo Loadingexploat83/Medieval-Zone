@@ -39,6 +39,7 @@ public class Partida {
 		for(int i = 0; i < enemy.length; i++) {
 		
 			enemy[i] = enemyGenerator();
+			enemy[i].setName("Enemy " + enemy[i].getClass().getSimpleName());
 		
 		}
 		
@@ -64,7 +65,6 @@ public class Partida {
 	
 	public void start(){
 		sc = new Scanner(System.in);
-		enemy = new Enemy[16];
 		System.out.println("Bienvenido");
 		System.out.println("Numero de jugadores (max 4)");
 		
@@ -290,6 +290,141 @@ public class Partida {
 		
 	}
 	
+	void abrirInventario() 
+	{
+		System.out.println("En tu inventario tienes:");
+		for (int i = 0; i < playerParty.length; i++) {
+			System.out.println(playerParty[i].getName() + " tiene:");
+			System.out.println(playerParty[i].getInventario().toString());
+		}
+		
+	}
+	
+	void moverte() {
+		
+		//Printeamos todos los sitios a los que puedes ir
+		System.out.println("\nLocalizaciones Disponibles: ");	
+		for(int i = 0; i < availableLocations.size(); i++) 
+		{
+			System.out.println((i+1) + ". "+ availableLocations.get(i));
+			
+		}
+		
+		int selection = leerOpcion(1, availableLocations.size());
+		
+		location = availableLocations.get(selection-1);
+		
+		availableLocations.remove(selection-1);
+		
+		System.out.println("\nEstas en: " + location + "\n");
+	}
+	
+	void descansar() {
+		//Este es un numero random del 10 al 40 el cual cura a cada miembro de la party por ese valor
+		int randomNum = (int) (Math.random()*30 + 10);
+		int curaTotal = 0;
+		
+		for (int i = 0; i < playerParty.length; i++) {
+			curaTotal += playerParty[i].healHP(randomNum);
+		}
+		
+		System.out.println("Descansas... Tu party se a curado para un total de: " + curaTotal + " hp");
+		
+	}
+	
+
+	
+	
+	
+	void checkStats() 
+	{
+		System.out.println("Tu party consiste de:");
+		for (int i = 0; i < playerParty.length; i++) {
+			System.out.println(playerParty[i].getName() + " con: ");
+			System.out.println(playerParty[i].getDmg() + " de DMG, "  +
+								playerParty[i].getHp() + " de vida y " + 
+								playerParty[i].getDef() + " de Def");
+		}
+	}
+	
+	private Consumible randomConsumible() {
+		Random random = new Random();
+		
+		//el random.nextInt(x) debe tener en X la cantidad de consumible que tengamos
+		int roll = random.nextInt(3);
+		
+		//Aqui pondremos la lista con cada consumible
+		switch (roll) {
+		case 0:
+			return new PociondeVida();
+		
+		case 1:
+			return new PociondeArmadura();
+		
+		case 2:
+			return new PociondeFuerza();
+			
+		default:
+			return null;
+		}
+	}
+	
+	private Armour randomArmour() {
+		Random random = new Random();
+		
+		int roll = random.nextInt(3);
+		switch (roll) {
+		case 0:
+			return new Chestplate();
+		
+		case 1: 
+			return new Helmet();
+		
+		case 2:
+			return new Leggings();
+		
+		default:
+			return null;
+		}
+	}
+	
+	// TODO: completar randomWeapon y randomArmour
+	private Weapon randomWeapon() {
+		Random random = new Random();
+		int roll = random.nextInt(6);
+		
+		switch (roll) {
+		case 0:
+			return new Axe();
+		
+		case 1:
+			return new Bow();
+		
+		case 2:
+			return new Dagger();
+		
+		case 3:
+			return new Hammer();
+		
+		case 4:
+			return new M249();
+		
+		case 5: 
+			return new Sword();
+		
+		default:
+			return null;
+		}
+	}
+
+	public void volcarPartida() 
+	{
+		
+		
+	}
+	
+
+	
 	int iniciarCombate() {
 		
 		Random random = new Random();
@@ -320,7 +455,7 @@ public class Partida {
 					
 					if(playerParty.length > 1) {
 						
-						for(int i = 1; i!= playerParty.length; i++) {
+						for(int i = 1; i < playerParty.length; i++) {
 							
 							Inventory inventarioParty = playerParty[i].getInventario();
 							Weapon weaponParty = inventarioParty.getWeapon();
@@ -399,104 +534,7 @@ public class Partida {
 		
 		
 }
-	
-	void abrirInventario() 
-	{
-		System.out.println("En tu inventario tienes:");
-		for (int i = 0; i < playerParty.length; i++) {
-			System.out.println(playerParty[i].getName() + " tiene:");
-			System.out.println(playerParty[i].getInventario().toString());
-		}
-		
-	}
-	
-	void moverte() {
-		
-		//Printeamos todos los sitios a los que puedes ir
-		System.out.println("\nLocalizaciones Disponibles: ");	
-		for(int i = 0; i < availableLocations.size(); i++) 
-		{
-			System.out.println((i+1) + ". "+ availableLocations.get(i));
-			
-		}
-		
-		int selection = leerOpcion(1, availableLocations.size());
-		
-		location = availableLocations.get(selection-1);
-		
-		availableLocations.remove(selection-1);
-		
-		System.out.println("\nEstas en: " + location + "\n");
-	}
-	
-	void descansar() {
-		//Este es un numero random del 10 al 40 el cual cura a cada miembro de la party por ese valor
-		int randomNum = (int) (Math.random()*30 + 10);
-		int curaTotal = 0;
-		
-		for (int i = 0; i < playerParty.length; i++) {
-			curaTotal += playerParty[i].healHP(randomNum);
-		}
-		
-		System.out.println("Descansas... Tu party se a curado para un total de: " + curaTotal + " hp");
-		
-	}
-	
 
-	
-	
-	
-	void checkStats() 
-	{
-		System.out.println("Tu party consiste de:");
-		for (int i = 0; i < playerParty.length; i++) {
-			System.out.println(playerParty[i].getName() + " con: ");
-			System.out.println(playerParty[i].getDmg() + " de DMG, "  +
-								playerParty[i].getHp() + " de vida y " + 
-								playerParty[i].getDef() + " de Def");
-		}
-	}
-	
-	private Consumible randomConsumible() {
-		Random random = new Random();
-		
-		//el random.nextInt(x) debe tener en X la cantidad de consumible que tengamos
-		int roll = random.nextInt(1);
-		
-		//Aqui pondremos la lista con cada consumible
-		switch (roll) {
-		case 0:
-			return new PociondeVida();
-		
-		default:
-			return null;
-		}
-	}
-	
-	
-	// TODO: completar randomWeapon y randomArmour
-	private Weapon randomWeapon() {
-		Random random = new Random();
-		int roll = random.nextInt(7);
-		
-		switch (roll) {
-		case 0:
-			return new Axe();
-		
-		default:
-			return null;
-		}
-	}
-
-	public void volcarPartida() 
-	{
-		
-		
-	}
-	
-
-	
-	
 	
 }	
 

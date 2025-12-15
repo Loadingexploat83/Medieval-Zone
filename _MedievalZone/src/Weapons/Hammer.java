@@ -31,9 +31,5 @@ public class Hammer extends Weapon {
 		return getDmg();
 	}
 
-	@Override
-	public String toString() {
-		return "This Weapon is a Hammer With "+ getDmg() +" Attack and "+ getWeight()+ " Weight";
-	}
 
 }

@@ -28,10 +28,5 @@ public class Axe extends Weapon {
 			return getDmg();
 		}
 	}
-	
-	@Override
-	public String toString() {
-		return "This Weapon is an Axe With "+ getDmg() +" Attack and "+ getWeight()+ " Weight";
-	}
 
 }
