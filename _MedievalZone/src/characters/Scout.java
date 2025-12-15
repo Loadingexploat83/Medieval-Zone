@@ -46,7 +46,7 @@ public class Scout extends Enemy{
 					getInventario().setWeapon(arma);
 					break;
 				case 2:
-					getInventario().setArmour(armadura);
+					getInventario().addArmour(armadura);
 					break;
 				case 3:
 					if(secondRand == 1) {
@@ -69,7 +69,7 @@ public class Scout extends Enemy{
 	
 	public String toString() {
 		
-		return "Clerigo" + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
+		return getName() + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
 				", consumibles:" + getInventario().getConsumibles();
 	}
 	

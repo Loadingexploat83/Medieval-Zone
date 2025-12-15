@@ -18,7 +18,7 @@ public class Inventory {
 	
 
 	 private Weapon weapon;
-	 private Armour armour;
+	 private List<Armour> armour;
 	 /*private Leggings pantalones;
 	 private Helmet casco;
 	 private Chestplate pechera;*/
@@ -56,6 +56,31 @@ public class Inventory {
 		 
 		 consumibles.remove(consum);
 	 }
+	 public void addArmour(Armour armadura) {
+		 
+		 if(this.armour.contains(armadura)) {
+			 
+			 System.out.println("Ya tienes un/a"+ armadura);
+			 return;
+		 }else {
+			 
+			 this.armour.addLast(armadura);
+			 System.out.println("Has añadido" + armadura + " a tu armadura");
+		 }
+	 }
+	 
+	 public int getDefPoints() {
+		 
+		 int defpoints = 0;
+		 for(int i = 0; i < armour.size(); i++) {
+			 
+			 defpoints += armour.get(i).getDef();
+		 }
+		 
+		 return defpoints;
+	 }
+	 
+	 //Setters & getters
 	 public Weapon getWeapon() {
 		 return weapon;
 	 }
@@ -70,11 +95,11 @@ public class Inventory {
 		 this.consumibles = consumibles;
 	 }
 	 
-	 public Armour getArmour() {
+	 public List<Armour> getArmour() {
 			return armour;
 		}
 
-		 public void setArmour(Armour armour) {
+		 public void setArmour(List<Armour> armour) {
 			 this.armour = armour;
 		 }
 
@@ -83,9 +108,9 @@ public class Inventory {
 	 
 	 public String toString() {
 		 
-		 return "Tienes este arma: " + weapon.toString() + 
-				 ", esta armadura" + /*armor.toString() +*/ 
-				 ", Y estos consumibles" + consumibles;
+		 return "Tienes este arma: " + getWeapon() + 
+				 ", esta armadura" + getArmour() + 
+				 ", Y estos consumibles" + getConsumibles();
 	 }
 	 
 	 

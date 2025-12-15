@@ -24,8 +24,8 @@ public class Clerigo extends Enemy{
 		
 		this.hp = 100;
 		getInventario().getConsumibles().addLast(consumible);
-		getInventario().setArmour(armadura);
-		this.def = getInventario().getArmour().getDef();
+		getInventario().addArmour(armadura);
+		this.def =  getInventario().getDefPoints();
 		this.hp = 100;
 		this.dmg = 5; //Aqui poner punyos cuando esten acabados
 	}
@@ -42,7 +42,7 @@ public class Clerigo extends Enemy{
 	
 	public String toString() {
 		
-		return "Clerigo" + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
+		return getName() + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour() + 
 				", consumibles:" + getInventario().getConsumibles();
 	}
 	

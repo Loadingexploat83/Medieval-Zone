@@ -59,14 +59,14 @@ public abstract class Enemy implements CombatActions{
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
 		
-		dmg = arma.useWeapon() - e.getInventario().getArmour().getDef();
+		dmg = arma.useWeapon() - e.getInventario().getDefPoints();
 		e.Hit(dmg);
 	}
 	public int Guard(int aumento) {
 		
 		if(getInventario().getArmour() != null) {
-			def = getInventario().getArmour().getDef() + aumento;
-			getInventario().getArmour().setDef(def);
+			def = ((Armour) getInventario().getArmour()).getDef() + aumento;
+			((Armour) getInventario().getArmour()).setDef(def);
 			System.out.println("Tu defensa ha aumentado");
 		}else {
 			

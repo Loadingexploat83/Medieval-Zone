@@ -49,7 +49,7 @@ public class Ladron extends Enemy{
 	
 	public String toString() {
 		
-		return "Clerigo" + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
+		return getName() + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
 				", consumibles:" + getInventario().getConsumibles();
 	}
 	

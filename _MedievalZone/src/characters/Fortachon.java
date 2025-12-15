@@ -34,7 +34,7 @@ public class Fortachon extends Enemy{
 	
 	public String toString() {
 		
-		return "Fortachon" + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
+		return getName() + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
 				", consumibles:" + getInventario().getConsumibles();
 	}
 	

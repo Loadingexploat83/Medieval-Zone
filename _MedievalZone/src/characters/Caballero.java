@@ -24,8 +24,8 @@ public class Caballero extends Enemy{
 		super();
 		this.hp = 100;
 		getInventario().setWeapon(arma);
-		getInventario().setArmour(armadura);
-		this.def = getInventario().getArmour().getDef();
+		getInventario().addArmour(armadura);
+		this.def = getInventario().getDefPoints();
 		this.dmg = getInventario().getWeapon().getDmg();
 	}
 	
@@ -39,7 +39,7 @@ public class Caballero extends Enemy{
 	@Override
 	public String toString() {
 		
-		return "Caballero" + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
+		return getName() + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
 				", consumibles:" + getInventario().getConsumibles();
 	}
 	
