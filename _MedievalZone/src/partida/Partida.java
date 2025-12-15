@@ -96,7 +96,7 @@ public class Partida {
 		moverte();
 		
 		
-		while(playerParty[0].getHp()>=0) {
+		while(playerParty[0].getHp()>0) {
 			
 			select();
 		}
@@ -161,11 +161,8 @@ public class Partida {
 			System.out.println("4-. Fortachon");
 			System.out.println("5-. Scout");
 			
-			//Este personaje lo destruiremos despues, es solo de testing temporal
-			System.out.println("6-. Prueba Personaje");
 			
-			
-			int tipo = leerOpcion(1, 6);
+			int tipo = leerOpcion(1, 5);
 			
 			switch (tipo){
 				
@@ -184,10 +181,6 @@ public class Partida {
 					break;
 				case 5:
 					playerParty[i] = new Scout();
-					break;
-				
-				case 6:
-					playerParty[i] = new enemigoBaibi();
 					break;
 			}
 			
