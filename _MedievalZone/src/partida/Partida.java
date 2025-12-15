@@ -484,7 +484,7 @@ public class Partida {
 								
 								for(int i = 0; i<playerParty.length; i++) {
 									
-									//playerParty[i].Guard(aumento);
+									playerParty[i].Guard(5);
 									
 								}
 								break;
@@ -493,7 +493,7 @@ public class Partida {
 								
 								for(int i = 0; i<playerParty.length; i++) {
 									
-									//playerParty[i].Guard(aumento);
+									playerParty[i].Guard(5);
 									
 								}
 								
