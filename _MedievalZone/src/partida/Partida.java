@@ -278,9 +278,27 @@ public class Partida {
 	}
 	
 	void encontrarLoot () {
+		Random random = new Random();
 		
+		//el random.nextInt(x) debe tener en X la cantidad de consumible que tengamos
+		for(int i = 0; i < playerParty.length; i++) {
+		int roll = random.nextInt(3);
 		
+		switch (roll) {
+		case 0:
+			randomConsumible();
 		
+		case 1:
+			randomArmour();
+		
+		case 2:
+			randomWeapon();
+			
+		default:
+			System.out.println("No encontraste nada");
+		}
+		
+		}
 	}
 	
 	void abrirInventario() 
