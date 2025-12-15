@@ -152,7 +152,7 @@ public class Partida {
 		for(int i = 0; i < numJug; i++)
 		{
 			
-			System.out.println("Jugador "+ (i+1)+ " elige tipo de personaje:");
+			System.out.println("Jugador "+ (i+1)+ " elige tipo de personaje:"); //
 			System.out.println("1-. Clerigo");
 			System.out.println("2-. Ladron");
 			System.out.println("3-. Caballero");
