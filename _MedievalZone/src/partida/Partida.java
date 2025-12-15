@@ -438,6 +438,8 @@ public class Partida {
 	
 	int iniciarCombate() {
 		
+		int vidaEnemigo = 1;
+		int vidaPlayer = 1;
 		Random random = new Random();
 		int enemigoEncontrado = random.nextInt(enemy.length);
 		
@@ -449,7 +451,7 @@ public class Partida {
 		Inventory enemyInventory = enemy[enemigoEncontrado].getInventario();
 		Weapon enemyWeapon = enemyInventory.getWeapon();
 		
-		while((playerParty[0].getHp() > 0)&&(enemy[enemigoEncontrado].getHp()>0)) {
+		while((vidaPlayer > 0)&&(vidaEnemigo > 0)) {
 			
 			System.out.println(enemy[enemigoEncontrado].getName() + " tiene: " + enemy[enemigoEncontrado].getHp() +" de HP");
 			System.out.println("Cual sera tu siguiente movimiento?");
@@ -476,6 +478,10 @@ public class Partida {
 						}
 						
 					}
+					
+					vidaEnemigo = enemy[enemigoEncontrado].getHp();
+					vidaPlayer = playerParty[0].getHp();
+					
 					
 					break;
 					
