@@ -235,7 +235,11 @@ public class Partida {
 				
 			case 3:
 				
-				//explore();
+				if (explore()==1) {
+				
+					return;
+					
+				}
 				playerParty[0].Hit(40);
 				break;
 			
@@ -256,7 +260,7 @@ public class Partida {
 		turnCount++;
 	}
 	
-	void explore() {
+	int explore() {
 		//En explore 
 		Random random = new Random();
 		
@@ -264,18 +268,135 @@ public class Partida {
 		int roll = random.nextInt(2);
 		System.out.println("Exploras la zona... ");
 		if (roll == 1) {
-			//iniciarCombate();
+			if (iniciarCombate()==1) {
+				return 1;
+			} else {
+				return 0;
+			}
 		}
 		
 		else {
 			encontrarLoot();
+			return 0;
 		}
 		
 	}
 	
 	void encontrarLoot () {
 		
+		
+		
 	}
+	
+	int iniciarCombate() {
+		
+		Random random = new Random();
+		int enemigoEncontrado = random.nextInt(enemy.length);
+		
+		System.out.println("Te has encontrado a un "+enemy[enemigoEncontrado].getName());
+		
+		Inventory inventario1 = playerParty[0].getInventario();
+		Weapon weapon1 = inventario1.getWeapon();
+		
+		Inventory enemyInventory = enemy[enemigoEncontrado].getInventario();
+		Weapon enemyWeapon = enemyInventory.getWeapon();
+		
+		while((playerParty[0].getHp() > 0)&&(enemy[enemigoEncontrado].getHp()>0)) {
+			
+			System.out.println("Cual sera tu siguiente movimiento?");
+			System.out.println("1.Atacar, 2.Protegerte");
+			
+			int choice = sc.nextInt();
+			
+			switch (choice) {
+	
+				case 1:
+					
+					playerParty[0].Attack(weapon1, enemy[enemigoEncontrado]);
+					
+					enemy[enemigoEncontrado].Attack(enemyWeapon, playerParty[random.nextInt(playerParty.length)]);
+					
+					if(playerParty.length > 1) {
+						
+						for(int i = 1; i!= playerParty.length; i++) {
+							
+							Inventory inventarioParty = playerParty[i].getInventario();
+							Weapon weaponParty = inventarioParty.getWeapon();
+							
+							playerParty[i].Attack(weaponParty, enemy[enemigoEncontrado]);
+						}
+						
+					}
+					
+					break;
+					
+				case 2:
+					
+					int protect = random.nextInt(1);
+					
+					if(protect == 0) {
+						
+						enemy[enemigoEncontrado].Attack(enemyWeapon, playerParty[random.nextInt(playerParty.length)]);
+						
+					} else {
+						
+						int mejora = random.nextInt(2);
+						
+						switch (mejora) {		
+						
+							case 1: 
+								
+								for(int i = 0; i<playerParty.length; i++) {
+									
+									playerParty[i].healHP(10);
+									
+								}
+								
+								for(int i = 0; i<playerParty.length; i++) {
+									
+									playerParty[i].Guard();
+									
+								}
+								break;
+								
+							case 2:
+								
+								for(int i = 0; i<playerParty.length; i++) {
+									
+									playerParty[i].Guard();
+									
+								}
+								
+								break;
+								
+							default:
+								
+								System.out.println("No te has podido proteger!");
+								enemy[enemigoEncontrado].Attack(enemyWeapon, playerParty[random.nextInt(playerParty.length)]);
+						}
+					}
+			}
+		}
+		
+		if(playerParty[0].getHp() <= 0) {
+			
+			System.out.println("Has muerto...");
+			return 0;
+			
+		}
+		
+		if(enemy[enemigoEncontrado].getHp()<= 0) {
+			
+			System.out.println(enemy[enemigoEncontrado].getName() + "ha muerto...");
+			System.out.println("Has ganado la batalla!");
+			return 1;
+			
+		}
+		
+		return 0; //para que se calle el compiler 
+		
+		
+}
 	
 	void abrirInventario() 
 	{
