@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import Weapons.*;
 import characters.*;
+import consumibles.*;
+import Armor.*;
 
 
 public class Partida {
@@ -253,6 +256,37 @@ public class Partida {
 		turnCount++;
 	}
 	
+	void explore() {
+		//En explore 
+		Random random = new Random();
+		
+		//Esto es un numero del 0 al 1
+		int roll = random.nextInt(2);
+		System.out.println("Exploras la zona... ");
+		if (roll == 1) {
+			//iniciarCombate();
+		}
+		
+		else {
+			encontrarLoot();
+		}
+		
+	}
+	
+	void encontrarLoot () {
+		
+	}
+	
+	void abrirInventario() 
+	{
+		System.out.println("En tu inventario tienes:");
+		for (int i = 0; i < playerParty.length; i++) {
+			System.out.println(playerParty[i].getName() + " tiene:");
+			System.out.println(playerParty[i].getInventario().toString());
+		}
+		
+	}
+	
 	void moverte() {
 		
 		//Printeamos todos los sitios a los que puedes ir
@@ -287,15 +321,48 @@ public class Partida {
 	
 
 	
-	void abrirInventario() 
-	{
-		
-		
-	}
+	
 	
 	void checkStats() 
 	{
+		System.out.println("Tu party consiste de:");
+		for (int i = 0; i < playerParty.length; i++) {
+			System.out.println(playerParty[i].getName() + " con: ");
+			System.out.println(playerParty[i].getDmg() + " de DMG, "  +
+								playerParty[i].getHp() + " de vida y " + 
+								playerParty[i].getDef() + " de Def");
+		}
+	}
+	
+	private Consumible randomConsumible() {
+		Random random = new Random();
 		
+		//el random.nextInt(x) debe tener en X la cantidad de consumible que tengamos
+		int roll = random.nextInt(1);
+		
+		//Aqui pondremos la lista con cada consumible
+		switch (roll) {
+		case 0:
+			return new PociondeVida();
+		
+		default:
+			return null;
+		}
+	}
+	
+	
+	// TODO: completar randomWeapon y randomArmour
+	private Weapon randomWeapon() {
+		Random random = new Random();
+		int roll = random.nextInt(7);
+		
+		switch (roll) {
+		case 0:
+			return new Axe();
+		
+		default:
+			return null;
+		}
 	}
 
 	public void volcarPartida() 

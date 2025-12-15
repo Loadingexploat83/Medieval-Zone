@@ -24,13 +24,13 @@ public abstract class Enemy implements CombatActions{
 	
 	public Enemy(Weapon weapon, Armour armadura) {
 		this.inventario = new Inventory(weapon, armadura);
-		this.hp = 100;
+		this.hp = maxHp;
 	}
 		
 	public Enemy(Weapon weapon, Armour armadura, Consumible consumible) {
 			
 			this.inventario = new Inventory(weapon, armadura, consumible);
-			this.hp = 100;
+			this.hp = maxHp;
 	}
 	
 	
@@ -79,6 +79,7 @@ public abstract class Enemy implements CombatActions{
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	
 	public String getType() {
 		return type;
