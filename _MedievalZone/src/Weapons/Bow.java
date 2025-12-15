@@ -45,7 +45,7 @@ public class Bow extends Weapon {
 		this.arrows += num;
 	}
 
-	public int useArrow() {
+	public int useWeapon() {
 		this.arrows--;
 		return getDmg();
 	}
