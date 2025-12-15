@@ -9,17 +9,18 @@ public class PociondeFuerza extends Consumible {
     public PociondeFuerza() {
         super("Poción de Fuerza");
         this.aumentoDanio = 3;
-        //this.turnos = 2;
+        this.turnos = 3;
     }
 
     @Override
-<<<<<<< HEAD
-    public void usar(Character objetivo) {
-        objetivo.aumentarDanio(aumentoDanio);
-=======
+
     public void usar(Enemy objetivo) {
-        
-    	//objetivo.aumentarDanio(aumentoDanio, turnos);
->>>>>>> branch 'master' of https://github.com/Loadingexploat83/Medieval-Zone.git
+    	
+    	objetivo.aumentarDanio(aumentoDanio, turnos);
+    	
     }
+   
+    
+    
 }
+

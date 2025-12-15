@@ -16,6 +16,12 @@ public abstract class Enemy implements CombatActions{
 	private int dmg;
 	private Inventory inventario;
 	
+    private int bonusDmg = 0;
+    private int bonusDmgTurns = 0;
+
+    private int bonusDef = 0;
+    private int bonusDefTurns = 0;
+	
 	public Enemy() {
 		this.inventario = new Inventory();
 		this.hp = maxHp;
@@ -55,6 +61,36 @@ public abstract class Enemy implements CombatActions{
 			this.dmg += aumento;
 		}
 	}
+	
+	public void aumentarDefensa(int cantidad, int turnos) {
+        bonusDef += cantidad;
+        bonusDefTurns = Math.max(bonusDefTurns, turnos);
+    }
+	
+	 public void aumentarDanio(int cantidad, int turnos) {
+	        bonusDmg += cantidad;
+	        bonusDmgTurns = Math.max(bonusDmgTurns, turnos);
+	    }
+	 
+	 public void finTurno() {
+	        if (bonusDmgTurns > 0) {
+	            bonusDmgTurns--;
+	            if (bonusDmgTurns == 0) bonusDmg = 0;
+	        }
+	        if (bonusDefTurns > 0) {
+	            bonusDefTurns--;
+	            if (bonusDefTurns == 0) bonusDef = 0;
+	        }
+	 }
+	
+	 private int getDefTotal() {
+	        int base = this.def;
+	        if (inventario != null && inventario.getArmour() != null) {
+	            base += inventario.getArmour().getDef();
+	        }
+	        return base + bonusDef;
+	    }
+	
 	
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
@@ -121,13 +157,13 @@ public abstract class Enemy implements CombatActions{
 	}
 	
 	public int getDef() {
-		return def;
+		return def + bonusDef;
 	}
 	public void setDef(int def) {
 		this.def = def;
 	}
 	public int getDmg() {
-		return dmg;
+		return dmg + bonusDmg;
 	}
 	public void setDmg(int dmg) {
 		this.dmg = dmg;

@@ -14,6 +14,6 @@ public class PociondeVida extends Consumible {
 
     @Override
     public void usar(Enemy objetivo) {
-    
+    	objetivo.healHP(curacion);
     }
 }

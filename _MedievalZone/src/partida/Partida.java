@@ -96,7 +96,7 @@ public class Partida {
 		moverte();
 		
 		
-		while(playerParty[0].getHp()>=0) {
+		while(playerParty[0].getHp()>0) {
 			
 			select();
 		}
@@ -260,7 +260,14 @@ public class Partida {
 		}
 		
 		turnCount++;
+		
+		for (int i = 0; i < playerParty.length; i++) {
+			if (playerParty[i].getHp() > 0) {
+				playerParty[i].finTurno();
+			}
+		}
 	}
+	
 	
 	int explore() {
 		//En explore 
@@ -284,11 +291,15 @@ public class Partida {
 		
 	}
 	
-	void encontrarLoot () {
-		
-		
-		
+	void encontrarLoot() {
+	    Consumible c = randomConsumible();
+	    if (c != null) {
+	        playerParty[0].getInventario().getConsumibles().add(c);
+	        System.out.println("Has encontrado: " + c);
+	    }
 	}
+
+
 	
 	int iniciarCombate() {
 		
@@ -400,7 +411,7 @@ public class Partida {
 		
 }
 	
-	void abrirInventario() 
+	/*void abrirInventario() 
 	{
 		System.out.println("En tu inventario tienes:");
 		for (int i = 0; i < playerParty.length; i++) {
@@ -408,6 +419,29 @@ public class Partida {
 			System.out.println(playerParty[i].getInventario().toString());
 		}
 		
+	}*/
+	
+	void abrirInventario() {
+
+	    Inventory inv = playerParty[0].getInventario();
+
+	    System.out.println("Inventario:");
+	    List<Consumible> lista = inv.getConsumibles();
+
+	    if (lista.isEmpty()) {
+	        System.out.println("No tienes consumibles.");
+	        return;
+	    }
+
+	    for (int i = 0; i < lista.size(); i++) {
+	        System.out.println(i + ". " + lista.get(i));
+	    }
+
+	    System.out.println("Elige consumible a usar (-1 para salir):");
+	    int opcion = leerOpcion(-1, lista.size() - 1);
+
+	    if (opcion == -1) return;
+	    playerParty[0].UseItem(lista.get(opcion));
 	}
 	
 	void moverte() {
@@ -460,7 +494,7 @@ public class Partida {
 	private Consumible randomConsumible() {
 		Random random = new Random();
 		
-		//el random.nextInt(x) debe tener en X la cantidad de consumible que tengamos
+		/*//el random.nextInt(x) debe tener en X la cantidad de consumible que tengamos
 		int roll = random.nextInt(1);
 		
 		//Aqui pondremos la lista con cada consumible
@@ -469,9 +503,18 @@ public class Partida {
 			return new PociondeVida();
 		
 		default:
-			return null;
+			return null;*/
+		
+		int roll = random.nextInt(3);
+		switch (roll) {
+		    case 0: return new PociondeVida();
+		    case 1: return new PociondeFuerza();
+		    case 2: return new PociondeArmadura();
+		    default: return null;
 		}
-	}
+
+		}
+	
 	
 	
 	// TODO: completar randomWeapon y randomArmour
