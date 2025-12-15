@@ -3,7 +3,7 @@ package Weapons;
 public class Dagger extends Weapon {
 	
 	private static int mult = 2;
-	private static int baseDmg = 5;
+	private static int baseDmg = 15;
 	private static int baseWeight = 5;
 	private int percent = 30;
 	

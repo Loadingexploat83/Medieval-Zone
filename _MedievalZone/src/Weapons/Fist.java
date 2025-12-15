@@ -2,7 +2,7 @@ package Weapons;
 
 public class Fist extends Weapon{
 	
-	private static int baseDmg = 1;
+	private static int baseDmg = 10;
 	private static int baseWeight = 1;
 	
 	public Fist() {

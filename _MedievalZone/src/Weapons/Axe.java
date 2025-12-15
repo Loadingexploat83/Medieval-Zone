@@ -3,7 +3,7 @@ package Weapons;
 public class Axe extends Weapon {
 	
 	private static int mult = 10;
-	private static int baseDmg = 15;
+	private static int baseDmg = 25;
 	private static int baseWeight = 25;
 	private int percent = 10;
 	

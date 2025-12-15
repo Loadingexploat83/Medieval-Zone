@@ -42,6 +42,10 @@ public abstract class Weapon {
 	public String toString() {
 		return getClass().getSimpleName() + " con " + getDmg() +" Attack and "+ getWeight()+ " Weight";
 	}
+	
+	public int useEnemyWeapon() {
+		return getDmg();
+	}
 
 	
 }

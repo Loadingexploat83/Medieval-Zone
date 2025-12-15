@@ -433,6 +433,7 @@ public class Partida {
 		
 		while((playerParty[0].getHp() > 0)&&(enemy[enemigoEncontrado].getHp()>0)) {
 			
+			System.out.println(enemy[enemigoEncontrado].getName() + " tiene: " + enemy[enemigoEncontrado].getHp() +" de HP");
 			System.out.println("Cual sera tu siguiente movimiento?");
 			System.out.println("1.Atacar, 2.Protegerte");
 			
@@ -444,7 +445,7 @@ public class Partida {
 					
 					playerParty[0].Attack(weapon1, enemy[enemigoEncontrado]);
 					
-					enemy[enemigoEncontrado].Attack(enemyWeapon, playerParty[random.nextInt(playerParty.length)]);
+					enemy[enemigoEncontrado].EnemyAttack(enemyWeapon, playerParty[random.nextInt(playerParty.length)]);
 					
 					if(playerParty.length > 1) {
 						

@@ -65,8 +65,23 @@ public abstract class Enemy implements CombatActions{
 			dmg = arma.useWeapon();
 		}
 		System.out.println(name + " a atacado por " + dmg + " de DMG a " +e.getName());
+		
+		e.Hit(dmg);
+		System.out.println("Hit");
+	}
+	
+public void EnemyAttack(Weapon arma, Enemy e) {
+		
+		try {
+		dmg = arma.useEnemyWeapon() / e.getInventario().getDefPoints();
+		} catch (ArithmeticException err) {
+			dmg = arma.useWeapon();
+		}
+		System.out.println(name + " a atacado por " + dmg + " de DMG a " +e.getName());
 		e.Hit(dmg);
 	}
+	
+	
 	public int Guard(int aumento) {
 		
 		if(getInventario().getArmour() != null) {
@@ -119,7 +134,7 @@ public abstract class Enemy implements CombatActions{
 		this.type = type;
 	}
 	public int getHp() {
-		return hp;
+		return this.hp;
 	}
 	public void setHp(int hp) {
 		this.hp = hp;
