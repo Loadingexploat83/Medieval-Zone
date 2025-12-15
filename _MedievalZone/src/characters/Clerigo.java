@@ -1,17 +1,16 @@
 package characters;
 
-import Weapons.Weapon;
-import consumibles.Consumible;
-import Armor.Armour;
+import Weapons.*;
+import consumibles.*;
+import Armor.*;
 import java.util.List;
-
-
 
 public class Clerigo extends Enemy{
 	
 	private int hp;
 	private int def;
 	private int dmg;
+	
 	public Clerigo() {
 		
 		super();
@@ -22,30 +21,33 @@ public class Clerigo extends Enemy{
 	public Clerigo(Armour armadura, Consumible consumible) {
 		
 		super();
-		this.def = getInventario().getArmour().getDef();
+		
 		this.hp = 100;
-		this.dmg = 3;
 		getInventario().getConsumibles().addLast(consumible);
+		getInventario().addArmour(armadura);
+		this.def =  getInventario().getDefPoints();
+		this.hp = 100;
+		this.dmg = 5; //Aqui poner punyos cuando esten acabados
+	}
+	
+	public void habilidad(Enemy[] companeros) {
+		
+		for(int i = 0; i < companeros.length; i++) {
+			
+			companeros[i].healHP(10);
+		}
 	}
 	
 	@Override
-	public void Attack(Weapon arma, Enemy e) {
+	
+	public String toString() {
 		
-		dmg = arma.getDmg() - Guard();
-		e.Hit(dmg);
-	}
-	public int Guard() {
-		
-		def = getInventario().getArmour().getDef();
-		
-		return def;
-	}
-	public void UseItem(Consumible consum) {
-		
-		consum.Action(this);
-		getInventario().delConsum(consum);
+		return getName() + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour() + 
+				", consumibles:" + getInventario().getConsumibles();
 	}
 	
+	
+	//setters & getters
 	public int getHp() {
 		return hp;
 	}

@@ -59,6 +59,10 @@ public class Main {
 		}
 		*/
 		
-		
+		/*Fortachon e = new Fortachon();
+		Enemy[] c = new Enemy[2];
+		c[0] = new Clerigo(new Armor.Helmet(), new consumibles.PociondeVida());
+		c[1] = new Caballero(new Armor.Helmet(), new Weapons.Axe());
+		e.habilidad(c);*/
 	}
 }

@@ -39,7 +39,7 @@ public class M249 extends Weapon {
 	}
 	
 	//use this instead of getDmg();
-	public int useM249() {
+	public int useWeapon() {
 		int auxdmg = 0;
 		int i = 0;
 		double roll = Math.random()*100;

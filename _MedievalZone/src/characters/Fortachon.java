@@ -1,7 +1,11 @@
 package characters;
 
-import Weapons.Weapon;
-import consumibles.Consumible;
+import java.util.Scanner;
+
+import Weapons.*;
+import consumibles.*;
+import Armor.*;
+import java.util.List;
 
 public class Fortachon extends Enemy{
 
@@ -15,25 +19,54 @@ public class Fortachon extends Enemy{
 		this.hp = 100;
 		this.dmg = 3;
 	}
+	public Fortachon(Weapon arma, Consumible consumible) {
+		
+		super();
+	
+		getInventario().getConsumibles().addLast(consumible);
+		getInventario().setWeapon(arma);
+		this.def = /*getInventario().getArmour().getDef()*/ 0;
+		this.hp = 100;
+		this.dmg = getInventario().getWeapon().getDmg();
+	}
 	
 	@Override
-	public void Attack(Weapon arma, Enemy e) {
+	
+	public String toString() {
 		
-		dmg = arma.getDmg() - Guard();
-		e.Hit(dmg);
-	}
-	public int Guard() {
-		
-		def = getInventario().getArmour().getDef();
-		
-		return def;
-	}
-	public void UseItem(Consumible consum) {
-		
-		consum.Action(this);
-		getInventario().delConsum(consum);
+		return getName() + ", arma:" +getInventario().getWeapon() + ", armadura:" + getInventario().getArmour()+ 
+				", consumibles:" + getInventario().getConsumibles();
 	}
 	
+	public void habilidad(Enemy[] companeros) {
+		
+		int decision;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("¿A cual de tus compañeros les quieres subir el daño?: ");
+		for(int i = 0; i < companeros.length; i++) {
+			
+			System.out.print(i + 1);
+			System.out.print("-.");
+			System.out.println(companeros[i].toString());
+		}
+		decision = sc.nextInt();
+		switch(decision) {
+			
+			case 1:
+				companeros[0].aumentarFuerza(5);
+				break;
+			case 2:
+				companeros[1].aumentarFuerza(5);
+				break;
+			case 3:
+				companeros[2].aumentarFuerza(5);
+				break;
+			case 4:
+				companeros[3].aumentarFuerza(5);
+		}		
+	}
+	
+	//setters & getters
 	public int getHp() {
 		return hp;
 	}

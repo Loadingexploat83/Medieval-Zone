@@ -8,6 +8,8 @@ import consumibles.Consumible;
 public abstract class Enemy implements CombatActions{
 
 	private String type;
+	private String name;
+	
 	private int hp;
 	private int maxHp = 100;
 	private int def;
@@ -22,13 +24,13 @@ public abstract class Enemy implements CombatActions{
 	
 	public Enemy(Weapon weapon, Armour armadura) {
 		this.inventario = new Inventory(weapon, armadura);
-		this.hp = 100;
+		this.hp = maxHp;
 	}
 		
 	public Enemy(Weapon weapon, Armour armadura, Consumible consumible) {
 			
 			this.inventario = new Inventory(weapon, armadura, consumible);
-			this.hp = 100;
+			this.hp = maxHp;
 	}
 	
 	
@@ -41,16 +43,42 @@ public abstract class Enemy implements CombatActions{
 		}
 		this.hp -= dmg;
 	}
+	public void aumentarFuerza(int aumento) {
+		
+		if(getInventario().getWeapon() != null) {
+			
+			dmg = getInventario().getWeapon().getDmg() + aumento;
+			getInventario().getWeapon().setDmg(dmg);
+			
+		}else {
+			
+			this.dmg += aumento;
+		}
+	}
+	
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
 		
+		dmg = arma.useWeapon() - e.getInventario().getDefPoints();
+		e.Hit(dmg);
 	}
-	public int Guard() {
+	public int Guard(int aumento) {
 		
-		return 0;
+		if(getInventario().getArmour() != null) {
+			def = ((Armour) getInventario().getArmour()).getDef() + aumento;
+			((Armour) getInventario().getArmour()).setDef(def);
+			System.out.println("Tu defensa ha aumentado");
+		}else {
+			
+			this.def += aumento;
+		}
+		
+		return def;
 	}
-	public void UseItem() {
+	public void UseItem(Consumible consum) {
 		
+		consum.usar(this);
+		getInventario().delConsum(consum);
 	}
 	
 	
@@ -63,11 +91,21 @@ public abstract class Enemy implements CombatActions{
 		
 		
 		actualHeal = this.hp - healthOld;
+		
+		System.out.println(name + " se a curado " + actualHeal);
 		return actualHeal;
 	}
 	
 	
 	//Setters & getters
+	
+	public String getName() {
+		return this.name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 	public String getType() {
 		return type;
