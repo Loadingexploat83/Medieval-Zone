@@ -14,7 +14,10 @@ public abstract class Weapon {
 	public int getDmg() {
 		return dmg;
 	}
-	
+	public void setDmg(int dmg) {
+		this.dmg = dmg;
+	}
+
 	//adds modifier to the damage
 	public void modDmg(int mod) {
 		this.dmg += mod;
@@ -34,5 +37,6 @@ public abstract class Weapon {
 	//needs for each Weapon
 	@Override
 	public abstract String toString();
+
 	
 }

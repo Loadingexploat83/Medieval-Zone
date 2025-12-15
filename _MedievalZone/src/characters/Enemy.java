@@ -41,20 +41,39 @@ public abstract class Enemy implements CombatActions{
 		}
 		this.hp -= dmg;
 	}
-	public void aumentarDefensa(int aumento) {
+	public void aumentarFuerza(int aumento) {
 		
-		this.def += aumento;
+		if(getInventario().getWeapon() != null) {
+			
+			dmg = getInventario().getWeapon().getDmg() + aumento;
+			getInventario().getWeapon().setDmg(dmg);
+			
+		}else {
+			
+			this.dmg += aumento;
+		}
 	}
 	
 	@Override
 	public void Attack(Weapon arma, Enemy e) {
 		
+		dmg = arma.getDmg() - e.getInventario().getArmour().getDef();
+		e.Hit(dmg);
 	}
-	public int Guard() {
+	public int Guard(int aumento) {
 		
-		return 0;
+		if(getInventario().getArmour() != null) {
+			def = getInventario().getArmour().getDef() + aumento;
+			getInventario().getArmour().setDef(def);
+			System.out.println("Tu defensa ha aumentado");
+		}else {
+			
+			this.def += aumento;
+		}
+		
+		return def;
 	}
-	public void UseItem() {
+	public void UseItem(Consumible consum) {
 		
 	}
 	

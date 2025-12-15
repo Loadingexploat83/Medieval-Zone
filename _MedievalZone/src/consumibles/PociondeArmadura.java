@@ -1,6 +1,5 @@
 package consumibles;
-
-
+import characters.*;
 
 public class PociondeArmadura extends Consumible {
 
@@ -14,7 +13,7 @@ public class PociondeArmadura extends Consumible {
     }
 
     @Override
-    public void usar(Character objetivo) {
-        objetivo.aumentarDefensa(aumentoDefensa, turnos);
+    public void usar(Enemy objetivo) {
+        objetivo.Guard(aumentoDefensa/*, turnos*/);
     }
 }

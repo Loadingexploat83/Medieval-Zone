@@ -1,5 +1,5 @@
 package consumibles;
-
+import characters.*;
 
 public class PociondeFuerza extends Consumible {
 
@@ -13,7 +13,8 @@ public class PociondeFuerza extends Consumible {
     }
 
     @Override
-    public void usar(Character objetivo) {
-        objetivo.aumentarDanio(aumentoDanio, turnos);
+    public void usar(Enemy objetivo) {
+        
+    	//objetivo.aumentarDanio(aumentoDanio, turnos);
     }
 }

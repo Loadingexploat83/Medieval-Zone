@@ -1,4 +1,5 @@
 package consumibles;
+import characters.*;
 
 
 
@@ -15,7 +16,7 @@ public abstract class Consumible {
     }
 
     
-    public abstract void usar(Character objetivo);
+    public abstract void usar(Enemy objetivo);
 
     @Override
     public String toString() {
