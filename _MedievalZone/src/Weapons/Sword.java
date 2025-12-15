@@ -16,8 +16,7 @@ public class Sword extends Weapon {
 	
 	public Sword(int mod) {
 		super(baseDmg,baseWeight);
-		modDmg(mod*mult);
-		modWeight(mod*mult);
+		modifica(mod);
 	}
 	
 	public int behead() {

@@ -15,8 +15,7 @@ public class Axe extends Weapon {
 	public Axe(int mod){
 		super(baseDmg,baseWeight);
 
-		modDmg(mod*mult);
-		modWeight(mod*mult);
+		modifica(mod);
 	}
 	
 	public int useWeapon() {
